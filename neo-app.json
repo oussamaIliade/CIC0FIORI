@@ -1,0 +1,46 @@
+{
+  "welcomeFile": "webapp/test/testFLPService.html",
+  "routes": [
+    {
+      "path": "apihub_sandbox",
+      "target": {
+        "name": "webidecp",
+        "type": "application",
+        "entryPath": "/destinations/apihub_sandbox"
+      },
+      "description": "SAP API Business Hub - Sandbox end point"
+    },
+    {
+      "path": "/resources",
+      "target": {
+        "type": "service",
+        "name": "sapui5",
+        "preferLocal": true,
+        "entryPath": "/resources"
+      },
+      "description": "SAPUI5 Resources"
+    },
+    {
+      "path": "/test-resources",
+      "target": {
+        "type": "service",
+        "name": "sapui5",
+        "entryPath": "/test-resources"
+      },
+      "description": "SAPUI5 Test Resources"
+    },
+    {
+      "path": "/CB1",
+      "target": {
+        "type": "destination",
+        "name": "CB1"
+      },
+      "description": "CB1"
+    }
+  ],
+  "authenticationMethod": "none",
+  "headerWhiteList": [
+    "apiKey"
+  ],
+  "sendWelcomeFileRedirect": true
+}
