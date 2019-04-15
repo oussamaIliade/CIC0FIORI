@@ -1,0 +1,142 @@
+<edmx:Edmx Version="1.0" xmlns:edmx="http://schemas.microsoft.com/ado/2007/06/edmx" xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns:sap="http://www.sap.com/Protocols/SAPData">
+    <edmx:DataServices m:DataServiceVersion="2.0">
+        <Schema Namespace="-C4C_Employee" xml:lang="en" sap:schema-version="0000" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+            <EntityContainer Name="-C4C_Employee_Entities" m:IsDefaultEntityContainer="true">
+                <EntitySet Name="EmployeeCollection" EntityType="-C4C_Employee.Employee" sap:creatable="true" sap:updatable="true" sap:deletable="true"/>
+                <AssociationSet Name="EmployeeEmployeeBusinessAddressEmployeeBusinessAddress" Association="-C4C_Employee.EmployeeEmployeeBusinessAddressEmployeeBusinessAddress" sap:creatable="true" sap:updatable="true" sap:deletable="true">
+                    <End EntitySet="EmployeeCollection" Role="FromRole_EmployeeEmployeeBusinessAddressEmployeeBusinessAddress"/>
+                    <End EntitySet="EmployeeBusinessAddressCollection" Role="ToRole_EmployeeEmployeeBusinessAddressEmployeeBusinessAddress"/>
+                </AssociationSet>
+                <AssociationSet Name="EmployeeEmployeeCommunicationDataEmployeeCommunicationData" Association="-C4C_Employee.EmployeeEmployeeCommunicationDataEmployeeCommunicationData" sap:creatable="true" sap:updatable="true" sap:deletable="true">
+                    <End EntitySet="EmployeeCollection" Role="FromRole_EmployeeEmployeeCommunicationDataEmployeeCommunicationData"/>
+                    <End EntitySet="EmployeeCommunicationDataCollection" Role="ToRole_EmployeeEmployeeCommunicationDataEmployeeCommunicationData"/>
+                </AssociationSet>
+                <EntitySet Name="EmployeeBusinessAddressCollection" EntityType="-C4C_Employee.EmployeeBusinessAddress" sap:creatable="true" sap:updatable="true" sap:deletable="true"/>
+                <AssociationSet Name="EmployeeBusinessAddressEmployeeEmployee" Association="-C4C_Employee.EmployeeBusinessAddressEmployeeEmployee" sap:creatable="true" sap:updatable="true" sap:deletable="true">
+                    <End EntitySet="EmployeeBusinessAddressCollection" Role="FromRole_EmployeeBusinessAddressEmployeeEmployee"/>
+                    <End EntitySet="EmployeeCollection" Role="ToRole_EmployeeBusinessAddressEmployeeEmployee"/>
+                </AssociationSet>
+                <AssociationSet Name="EmployeeBusinessAddressEmployeeFormattedBusinessAddressEmployeeFormattedBusinessAddress" Association="-C4C_Employee.EmployeeBusinessAddressEmployeeFormattedBusinessAddressEmployeeFormattedBusinessAddress" sap:creatable="true" sap:updatable="true" sap:deletable="true">
+                    <End EntitySet="EmployeeBusinessAddressCollection" Role="FromRole_EmployeeBusinessAddressEmployeeFormattedBusinessAddressEmployeeFormattedBusinessAddress"/>
+                    <End EntitySet="EmployeeFormattedBusinessAddressCollection" Role="ToRole_EmployeeBusinessAddressEmployeeFormattedBusinessAddressEmployeeFormattedBusinessAddress"/>
+                </AssociationSet>
+                <EntitySet Name="EmployeeCommunicationDataCollection" EntityType="-C4C_Employee.EmployeeCommunicationData" sap:creatable="true" sap:updatable="true" sap:deletable="true"/>
+                <AssociationSet Name="EmployeeCommunicationDataEmployeeEmployee" Association="-C4C_Employee.EmployeeCommunicationDataEmployeeEmployee" sap:creatable="true" sap:updatable="true" sap:deletable="true">
+                    <End EntitySet="EmployeeCommunicationDataCollection" Role="FromRole_EmployeeCommunicationDataEmployeeEmployee"/>
+                    <End EntitySet="EmployeeCollection" Role="ToRole_EmployeeCommunicationDataEmployeeEmployee"/>
+                </AssociationSet>
+                <EntitySet Name="EmployeeFormattedBusinessAddressCollection" EntityType="-C4C_Employee.EmployeeFormattedBusinessAddress" sap:creatable="false" sap:updatable="false" sap:deletable="false"/>
+                <AssociationSet Name="EmployeeFormattedBusinessAddressEmployeeBusinessAddressEmployeeBusinessAddress" Association="-C4C_Employee.EmployeeFormattedBusinessAddressEmployeeBusinessAddressEmployeeBusinessAddress" sap:creatable="true" sap:updatable="true" sap:deletable="true">
+                    <End EntitySet="EmployeeFormattedBusinessAddressCollection" Role="FromRole_EmployeeFormattedBusinessAddressEmployeeBusinessAddressEmployeeBusinessAddress"/>
+                    <End EntitySet="EmployeeBusinessAddressCollection" Role="ToRole_EmployeeFormattedBusinessAddressEmployeeBusinessAddressEmployeeBusinessAddress"/>
+                </AssociationSet>
+            </EntityContainer>
+            <EntityType Name="Employee">
+                <Key>
+                    <PropertyRef Name="ObjectID"/>
+                </Key>
+                <Property Name="ObjectID" Type="Edm.String" sap:creatable="false" sap:updatable="false" sap:deletable="false" MaxLength="70" sap:label="ObjectID"/>
+                <Property Name="AcademicTitleCode" Type="Edm.String" sap:creatable="true" sap:updatable="true" sap:deletable="true" MaxLength="4" sap:label="AcademicTitleCode"/>
+                <Property Name="AcademicTitleCodeText" Type="Edm.String" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:label="AcademicTitleCodeText"/>
+                <Property Name="DateFormatCode" Type="Edm.String" sap:creatable="false" sap:updatable="false" sap:deletable="false" MaxLength="2" sap:label="DateFormatCode"/>
+                <Property Name="DateFormatCodeText" Type="Edm.String" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:label="DateFormatCodeText"/>
+                <Property Name="DecimalFormatCode" Type="Edm.String" sap:creatable="false" sap:updatable="false" sap:deletable="false" MaxLength="2" sap:label="DecimalFormatCode"/>
+                <Property Name="DecimalFormatCodeText" Type="Edm.String" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:label="DecimalFormatCodeText"/>
+                <Property Name="ETag" Type="Edm.DateTimeOffset" sap:creatable="false" sap:updatable="false" sap:deletable="false" Precision="7" sap:label="ETag"/>
+                <Property Name="Email" Type="Edm.String" sap:creatable="true" sap:updatable="true" sap:deletable="true" MaxLength="765" sap:label="Email"/>
+                <Property Name="EmployeeID" Type="Edm.String" sap:creatable="true" sap:updatable="true" sap:deletable="true" MaxLength="20" sap:label="EmployeeID"/>
+                <Property Name="EndDate" Type="Edm.DateTime" sap:creatable="true" sap:updatable="true" sap:deletable="true" sap:display-format="Date" sap:label="EndDate"/>
+                <Property Name="FirstName" Type="Edm.String" sap:creatable="true" sap:updatable="true" sap:deletable="true" MaxLength="240" sap:label="FirstName"/>
+                <Property Name="InternalEmployeeIndicator" Type="Edm.Boolean" sap:creatable="true" sap:updatable="true" sap:deletable="true" sap:label="InternalEmployeeIndicator"/>
+                <Property Name="InternalID" Type="Edm.String" sap:creatable="true" sap:updatable="true" sap:deletable="true" MaxLength="10" sap:label="InternalID"/>
+                <Property Name="LastName" Type="Edm.String" sap:creatable="true" sap:updatable="true" sap:deletable="true" MaxLength="240" sap:label="LastName"/>
+                <Property Name="LogonLanguageCode" Type="Edm.String" sap:creatable="false" sap:updatable="false" sap:deletable="false" MaxLength="1" sap:label="LogonLanguageCode"/>
+                <Property Name="LogonLanguageCodeText" Type="Edm.String" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:label="LogonLanguageCodeText"/>
+                <Property Name="MiddleName" Type="Edm.String" sap:creatable="true" sap:updatable="true" sap:deletable="true" MaxLength="240" sap:label="MiddleName"/>
+                <Property Name="Name" Type="Edm.String" sap:creatable="false" sap:updatable="false" sap:deletable="false" MaxLength="480" sap:label="Name"/>
+                <Property Name="NickName" Type="Edm.String" sap:creatable="true" sap:updatable="true" sap:deletable="true" MaxLength="240" sap:label="NickName"/>
+                <Property Name="SortingName" Type="Edm.String" sap:creatable="false" sap:updatable="false" sap:deletable="false" MaxLength="480" sap:label="SortingName"/>
+                <Property Name="StartDate" Type="Edm.DateTime" sap:creatable="true" sap:updatable="true" sap:deletable="true" sap:display-format="Date" sap:label="StartDate"/>
+                <Property Name="TimeFormatCode" Type="Edm.String" sap:creatable="false" sap:updatable="false" sap:deletable="false" MaxLength="2" sap:label="TimeFormatCode"/>
+                <Property Name="TimeFormatCodeText" Type="Edm.String" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:label="TimeFormatCodeText"/>
+                <Property Name="TimeZoneCode" Type="Edm.String" sap:creatable="false" sap:updatable="false" sap:deletable="false" MaxLength="10" sap:label="TimeZoneCode"/>
+                <Property Name="TimeZoneCodeText" Type="Edm.String" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:label="TimeZoneCodeText"/>
+                <Property Name="TitleCode" Type="Edm.String" sap:creatable="true" sap:updatable="true" sap:deletable="true" MaxLength="4" sap:label="TitleCode"/>
+                <Property Name="TitleCodeText" Type="Edm.String" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:label="TitleCodeText"/>
+                <Property Name="UUID" Type="Edm.Guid" sap:creatable="true" sap:updatable="true" sap:deletable="true" sap:label="UUID"/>
+                <Property Name="UserID" Type="Edm.String" sap:creatable="false" sap:updatable="false" sap:deletable="false" MaxLength="40" sap:label="UserID"/>
+                <NavigationProperty Name="EmployeeBusinessAddress" Relationship="-C4C_Employee.EmployeeEmployeeBusinessAddressEmployeeBusinessAddress" FromRole="FromRole_EmployeeEmployeeBusinessAddressEmployeeBusinessAddress" ToRole="ToRole_EmployeeEmployeeBusinessAddressEmployeeBusinessAddress"/>
+                <NavigationProperty Name="EmployeeCommunicationData" Relationship="-C4C_Employee.EmployeeEmployeeCommunicationDataEmployeeCommunicationData" FromRole="FromRole_EmployeeEmployeeCommunicationDataEmployeeCommunicationData" ToRole="ToRole_EmployeeEmployeeCommunicationDataEmployeeCommunicationData"/>
+            </EntityType>
+            <Association Name="EmployeeEmployeeBusinessAddressEmployeeBusinessAddress">
+                <End Type="-C4C_Employee.Employee" Multiplicity="1" Role="FromRole_EmployeeEmployeeBusinessAddressEmployeeBusinessAddress"/>
+                <End Type="-C4C_Employee.EmployeeBusinessAddress" Multiplicity="*" Role="ToRole_EmployeeEmployeeBusinessAddressEmployeeBusinessAddress"/>
+            </Association>
+            <Association Name="EmployeeEmployeeCommunicationDataEmployeeCommunicationData">
+                <End Type="-C4C_Employee.Employee" Multiplicity="1" Role="FromRole_EmployeeEmployeeCommunicationDataEmployeeCommunicationData"/>
+                <End Type="-C4C_Employee.EmployeeCommunicationData" Multiplicity="*" Role="ToRole_EmployeeEmployeeCommunicationDataEmployeeCommunicationData"/>
+            </Association>
+            <EntityType Name="EmployeeBusinessAddress">
+                <Key>
+                    <PropertyRef Name="ObjectID"/>
+                </Key>
+                <Property Name="ObjectID" Type="Edm.String" sap:creatable="false" sap:updatable="false" sap:deletable="false" MaxLength="70" sap:label="ObjectID"/>
+                <Property Name="City" Type="Edm.String" sap:creatable="true" sap:updatable="true" sap:deletable="true" MaxLength="240" sap:label="City"/>
+                <Property Name="CountryCode" Type="Edm.String" sap:creatable="true" sap:updatable="true" sap:deletable="true" MaxLength="3" sap:label="CountryCode"/>
+                <Property Name="CountryCodeText" Type="Edm.String" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:label="CountryCodeText"/>
+                <Property Name="ETag" Type="Edm.DateTimeOffset" sap:creatable="false" sap:updatable="false" sap:deletable="false" Precision="7" sap:label="ETag"/>
+                <Property Name="HouseNumber" Type="Edm.String" sap:creatable="true" sap:updatable="true" sap:deletable="true" MaxLength="100" sap:label="HouseNumber"/>
+                <Property Name="ParentObjectID" Type="Edm.String" sap:creatable="false" sap:updatable="false" sap:deletable="false" MaxLength="70" sap:label="ParentObjectID"/>
+                <Property Name="PostalCode" Type="Edm.String" sap:creatable="true" sap:updatable="true" sap:deletable="true" MaxLength="100" sap:label="PostalCode"/>
+                <Property Name="PostalCodeText" Type="Edm.String" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:label="PostalCodeText"/>
+                <Property Name="StateCode" Type="Edm.String" sap:creatable="true" sap:updatable="true" sap:deletable="true" MaxLength="6" sap:label="StateCode"/>
+                <Property Name="StateCodeText" Type="Edm.String" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:label="StateCodeText"/>
+                <Property Name="Street" Type="Edm.String" sap:creatable="true" sap:updatable="true" sap:deletable="true" MaxLength="360" sap:label="Street"/>
+                <NavigationProperty Name="Employee" Relationship="-C4C_Employee.EmployeeBusinessAddressEmployeeEmployee" FromRole="FromRole_EmployeeBusinessAddressEmployeeEmployee" ToRole="ToRole_EmployeeBusinessAddressEmployeeEmployee"/>
+                <NavigationProperty Name="EmployeeFormattedBusinessAddress" Relationship="-C4C_Employee.EmployeeBusinessAddressEmployeeFormattedBusinessAddressEmployeeFormattedBusinessAddress" FromRole="FromRole_EmployeeBusinessAddressEmployeeFormattedBusinessAddressEmployeeFormattedBusinessAddress" ToRole="ToRole_EmployeeBusinessAddressEmployeeFormattedBusinessAddressEmployeeFormattedBusinessAddress"/>
+            </EntityType>
+            <Association Name="EmployeeBusinessAddressEmployeeEmployee">
+                <End Type="-C4C_Employee.EmployeeBusinessAddress" Multiplicity="1" Role="FromRole_EmployeeBusinessAddressEmployeeEmployee"/>
+                <End Type="-C4C_Employee.Employee" Multiplicity="1" Role="ToRole_EmployeeBusinessAddressEmployeeEmployee"/>
+            </Association>
+            <Association Name="EmployeeBusinessAddressEmployeeFormattedBusinessAddressEmployeeFormattedBusinessAddress">
+                <End Type="-C4C_Employee.EmployeeBusinessAddress" Multiplicity="1" Role="FromRole_EmployeeBusinessAddressEmployeeFormattedBusinessAddressEmployeeFormattedBusinessAddress"/>
+                <End Type="-C4C_Employee.EmployeeFormattedBusinessAddress" Multiplicity="*" Role="ToRole_EmployeeBusinessAddressEmployeeFormattedBusinessAddressEmployeeFormattedBusinessAddress"/>
+            </Association>
+            <EntityType Name="EmployeeCommunicationData">
+                <Key>
+                    <PropertyRef Name="ObjectID"/>
+                </Key>
+                <Property Name="ObjectID" Type="Edm.String" sap:creatable="false" sap:updatable="false" sap:deletable="false" MaxLength="70" sap:label="ObjectID"/>
+                <Property Name="Building" Type="Edm.String" sap:creatable="true" sap:updatable="true" sap:deletable="true" MaxLength="10" sap:label="Building"/>
+                <Property Name="EMail" Type="Edm.String" sap:creatable="true" sap:updatable="true" sap:deletable="true" MaxLength="765" sap:label="EMail"/>
+                <Property Name="ETag" Type="Edm.DateTimeOffset" sap:creatable="false" sap:updatable="false" sap:deletable="false" Precision="7" sap:label="ETag"/>
+                <Property Name="Fax" Type="Edm.String" sap:creatable="true" sap:updatable="true" sap:deletable="true" MaxLength="350" sap:label="Fax"/>
+                <Property Name="Floor" Type="Edm.String" sap:creatable="true" sap:updatable="true" sap:deletable="true" MaxLength="10" sap:label="Floor"/>
+                <Property Name="Mobile" Type="Edm.String" sap:creatable="true" sap:updatable="true" sap:deletable="true" MaxLength="350" sap:label="Mobile"/>
+                <Property Name="ParentObjectID" Type="Edm.String" sap:creatable="false" sap:updatable="false" sap:deletable="false" MaxLength="70" sap:label="ParentObjectID"/>
+                <Property Name="Phone" Type="Edm.String" sap:creatable="true" sap:updatable="true" sap:deletable="true" MaxLength="350" sap:label="Phone"/>
+                <Property Name="Room" Type="Edm.String" sap:creatable="true" sap:updatable="true" sap:deletable="true" MaxLength="10" sap:label="Room"/>
+                <NavigationProperty Name="Employee" Relationship="-C4C_Employee.EmployeeCommunicationDataEmployeeEmployee" FromRole="FromRole_EmployeeCommunicationDataEmployeeEmployee" ToRole="ToRole_EmployeeCommunicationDataEmployeeEmployee"/>
+            </EntityType>
+            <Association Name="EmployeeCommunicationDataEmployeeEmployee">
+                <End Type="-C4C_Employee.EmployeeCommunicationData" Multiplicity="1" Role="FromRole_EmployeeCommunicationDataEmployeeEmployee"/>
+                <End Type="-C4C_Employee.Employee" Multiplicity="1" Role="ToRole_EmployeeCommunicationDataEmployeeEmployee"/>
+            </Association>
+            <EntityType Name="EmployeeFormattedBusinessAddress">
+                <Key>
+                    <PropertyRef Name="ObjectID"/>
+                </Key>
+                <Property Name="ObjectID" Type="Edm.String" sap:creatable="false" sap:updatable="false" sap:deletable="false" MaxLength="70" sap:label="ObjectID"/>
+                <Property Name="ETag" Type="Edm.DateTimeOffset" sap:creatable="false" sap:updatable="false" sap:deletable="false" Precision="7" sap:label="ETag"/>
+                <Property Name="FormattedAddress" Type="Edm.String" sap:creatable="false" sap:updatable="false" sap:deletable="false" MaxLength="480" sap:label="FormattedAddress"/>
+                <Property Name="ParentObjectID" Type="Edm.String" sap:creatable="false" sap:updatable="false" sap:deletable="false" MaxLength="70" sap:label="ParentObjectID"/>
+                <NavigationProperty Name="EmployeeBusinessAddress" Relationship="-C4C_Employee.EmployeeFormattedBusinessAddressEmployeeBusinessAddressEmployeeBusinessAddress" FromRole="FromRole_EmployeeFormattedBusinessAddressEmployeeBusinessAddressEmployeeBusinessAddress" ToRole="ToRole_EmployeeFormattedBusinessAddressEmployeeBusinessAddressEmployeeBusinessAddress"/>
+            </EntityType>
+            <Association Name="EmployeeFormattedBusinessAddressEmployeeBusinessAddressEmployeeBusinessAddress">
+                <End Type="-C4C_Employee.EmployeeFormattedBusinessAddress" Multiplicity="1" Role="FromRole_EmployeeFormattedBusinessAddressEmployeeBusinessAddressEmployeeBusinessAddress"/>
+                <End Type="-C4C_Employee.EmployeeBusinessAddress" Multiplicity="1" Role="ToRole_EmployeeFormattedBusinessAddressEmployeeBusinessAddressEmployeeBusinessAddress"/>
+            </Association>
+        </Schema>
+    </edmx:DataServices>
+</edmx:Edmx>

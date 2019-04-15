@@ -1,0 +1,28 @@
+<mvc:View xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" controllerName="com.sap.build.standard.untitledPrototype.controller.Page4">
+    <Page title="List Page Header" showHeader="true" showFooter="true" showNavButton="false">
+        <content>
+            <List mode="SingleSelectMaster" width="100%" headerText="Header" footerText="" backgroundDesign="Solid" showSeparators="All" growing="true" growingThreshold="20" growingScrollToLoad="true" visible="true" itemPress="_onObjectListItemPress" items="BPtoCC">
+                <infoToolbar/>
+                <headerToolbar>
+                    <Toolbar enabled="true" visible="true" width="" design="Solid">
+                        <content>
+                            <SearchField placeholder="Search" showSearchButton="true" visible="true" width="100%"/>
+                        </content>
+                    </Toolbar>
+                </headerToolbar>
+                <items>
+                   <StandardListItem title="{Vkont}" iconDensityAware="false" iconInset="false" type="Navigation"/>
+                </items>
+            </List>
+        </content>
+        <footer>
+            <OverflowToolbar width="100%" height="46px" design="Auto" enabled="true" visible="true">
+                <content/>
+            </OverflowToolbar>
+        </footer>
+        <headerContent>
+            <Button text="" type="Default" icon="{= ${FclRouter>/expandIcon/img}}" iconFirst="true" width="auto" enabled="true" visible="{= ${fclButton>/visible}}" tooltip="{= ${FclRouter>/expandIcon/tooltip}}" iconDensityAware="false" class="fcl-resizeButton-js" press="_onExpandButtonPress"/>
+            <Button text="" type="Default" icon="sap-icon://decline" iconFirst="true" width="auto" enabled="true" visible="{= ${fclButton>/visible}}" tooltip="Close Column" iconDensityAware="false" class="fcl-closeButton-js" press="_onCloseButtonPress"/>
+        </headerContent>
+    </Page>
+</mvc:View>

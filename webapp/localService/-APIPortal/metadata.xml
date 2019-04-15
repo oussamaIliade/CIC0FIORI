@@ -1,0 +1,1634 @@
+<edmx:Edmx Version="1.0" xmlns:edmx="http://schemas.microsoft.com/ado/2007/06/edmx" xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns:sap="http://www.sap.com/Protocols/SAPData">
+    <edmx:DataServices m:DataServiceVersion="2.0">
+        <Schema Namespace="-APIPortal" xml:lang="en" sap:schema-version="0000" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+            <EntityContainer Name="-APIPortal_Entities" m:IsDefaultEntityContainer="true">
+                <EntitySet Name="KeyMapEntries" EntityType="-APIPortal.KeyMapEntry" sap:creatable="false" sap:updatable="false" sap:deletable="false"/>
+                <AssociationSet Name="KeyMapEntrykeyMapEntryValuesKeyMapEntryValue" Association="-APIPortal.KeyMapEntrykeyMapEntryValuesKeyMapEntryValue" sap:creatable="true" sap:updatable="true" sap:deletable="true">
+                    <End EntitySet="KeyMapEntries" Role="FromRole_KeyMapEntrykeyMapEntryValuesKeyMapEntryValue"/>
+                    <End EntitySet="KeyMapEntryValues" Role="ToRole_KeyMapEntrykeyMapEntryValuesKeyMapEntryValue"/>
+                </AssociationSet>
+                <EntitySet Name="VirtualHosts" EntityType="-APIPortal.VirtualHost" sap:creatable="false" sap:updatable="false" sap:deletable="false"/>
+                <EntitySet Name="FlowRules" EntityType="-APIPortal.FlowRule" sap:creatable="false" sap:updatable="false" sap:deletable="false"/>
+                <AssociationSet Name="FlowRulerequestStream" Association="-APIPortal.FlowRulerequestStream" sap:creatable="true" sap:updatable="true" sap:deletable="true">
+                    <End EntitySet="FlowRules" Role="FromRole_FlowRulerequestStream"/>
+                    <End EntitySet="Streams" Role="ToRole_FlowRulerequestStream"/>
+                </AssociationSet>
+                <AssociationSet Name="FlowRuleresponseStream" Association="-APIPortal.FlowRuleresponseStream" sap:creatable="true" sap:updatable="true" sap:deletable="true">
+                    <End EntitySet="FlowRules" Role="FromRole_FlowRuleresponseStream"/>
+                    <End EntitySet="Streams" Role="ToRole_FlowRuleresponseStream"/>
+                </AssociationSet>
+                <EntitySet Name="TemplateFileResources" EntityType="-APIPortal.TemplateFileResource" sap:creatable="false" sap:updatable="false" sap:deletable="false"/>
+                <AssociationSet Name="TemplateFileResourcepolicyTemplateContainerPolicyTemplateContainer" Association="-APIPortal.TemplateFileResourcepolicyTemplateContainerPolicyTemplateContainer" sap:creatable="true" sap:updatable="true" sap:deletable="true">
+                    <End EntitySet="TemplateFileResources" Role="FromRole_TemplateFileResourcepolicyTemplateContainerPolicyTemplateContainer"/>
+                    <End EntitySet="PolicyTemplateContainers" Role="ToRole_TemplateFileResourcepolicyTemplateContainerPolicyTemplateContainer"/>
+                </AssociationSet>
+                <EntitySet Name="ACLProductLinkages" EntityType="-APIPortal.ACLProductLinkage" sap:creatable="false" sap:updatable="false" sap:deletable="false"/>
+                <EntitySet Name="APIProxyEndPoints" EntityType="-APIPortal.APIProxyEndPoint" sap:creatable="false" sap:updatable="false" sap:deletable="false"/>
+                <AssociationSet Name="APIProxyEndPointapiProxyAPIProxy" Association="-APIPortal.APIProxyEndPointapiProxyAPIProxy" sap:creatable="true" sap:updatable="true" sap:deletable="true">
+                    <End EntitySet="APIProxyEndPoints" Role="FromRole_APIProxyEndPointapiProxyAPIProxy"/>
+                    <End EntitySet="APIProxies" Role="ToRole_APIProxyEndPointapiProxyAPIProxy"/>
+                </AssociationSet>
+                <AssociationSet Name="APIProxyEndPointapiResourcesAPIResource" Association="-APIPortal.APIProxyEndPointapiResourcesAPIResource" sap:creatable="true" sap:updatable="true" sap:deletable="true">
+                    <End EntitySet="APIProxyEndPoints" Role="FromRole_APIProxyEndPointapiResourcesAPIResource"/>
+                    <End EntitySet="APIResources" Role="ToRole_APIProxyEndPointapiResourcesAPIResource"/>
+                </AssociationSet>
+                <AssociationSet Name="APIProxyEndPointconditionalFlowsConditionalFlowRule" Association="-APIPortal.APIProxyEndPointconditionalFlowsConditionalFlowRule" sap:creatable="true" sap:updatable="true" sap:deletable="true">
+                    <End EntitySet="APIProxyEndPoints" Role="FromRole_APIProxyEndPointconditionalFlowsConditionalFlowRule"/>
+                    <End EntitySet="ConditionalFlowRules" Role="ToRole_APIProxyEndPointconditionalFlowsConditionalFlowRule"/>
+                </AssociationSet>
+                <AssociationSet Name="APIProxyEndPointdefaultFaultRuleDefaultFaultRule" Association="-APIPortal.APIProxyEndPointdefaultFaultRuleDefaultFaultRule" sap:creatable="true" sap:updatable="true" sap:deletable="true">
+                    <End EntitySet="APIProxyEndPoints" Role="FromRole_APIProxyEndPointdefaultFaultRuleDefaultFaultRule"/>
+                    <End EntitySet="DefaultFaultRules" Role="ToRole_APIProxyEndPointdefaultFaultRuleDefaultFaultRule"/>
+                </AssociationSet>
+                <AssociationSet Name="APIProxyEndPointfaultRulesFaultRule" Association="-APIPortal.APIProxyEndPointfaultRulesFaultRule" sap:creatable="true" sap:updatable="true" sap:deletable="true">
+                    <End EntitySet="APIProxyEndPoints" Role="FromRole_APIProxyEndPointfaultRulesFaultRule"/>
+                    <End EntitySet="FaultRules" Role="ToRole_APIProxyEndPointfaultRulesFaultRule"/>
+                </AssociationSet>
+                <AssociationSet Name="APIProxyEndPointpostClientFlowFlowRule" Association="-APIPortal.APIProxyEndPointpostClientFlowFlowRule" sap:creatable="true" sap:updatable="true" sap:deletable="true">
+                    <End EntitySet="APIProxyEndPoints" Role="FromRole_APIProxyEndPointpostClientFlowFlowRule"/>
+                    <End EntitySet="FlowRules" Role="ToRole_APIProxyEndPointpostClientFlowFlowRule"/>
+                </AssociationSet>
+                <AssociationSet Name="APIProxyEndPointpostFlowFlowRule" Association="-APIPortal.APIProxyEndPointpostFlowFlowRule" sap:creatable="true" sap:updatable="true" sap:deletable="true">
+                    <End EntitySet="APIProxyEndPoints" Role="FromRole_APIProxyEndPointpostFlowFlowRule"/>
+                    <End EntitySet="FlowRules" Role="ToRole_APIProxyEndPointpostFlowFlowRule"/>
+                </AssociationSet>
+                <AssociationSet Name="APIProxyEndPointpreFlowFlowRule" Association="-APIPortal.APIProxyEndPointpreFlowFlowRule" sap:creatable="true" sap:updatable="true" sap:deletable="true">
+                    <End EntitySet="APIProxyEndPoints" Role="FromRole_APIProxyEndPointpreFlowFlowRule"/>
+                    <End EntitySet="FlowRules" Role="ToRole_APIProxyEndPointpreFlowFlowRule"/>
+                </AssociationSet>
+                <AssociationSet Name="APIProxyEndPointpropertiesEndPointProperty" Association="-APIPortal.APIProxyEndPointpropertiesEndPointProperty" sap:creatable="true" sap:updatable="true" sap:deletable="true">
+                    <End EntitySet="APIProxyEndPoints" Role="FromRole_APIProxyEndPointpropertiesEndPointProperty"/>
+                    <End EntitySet="EndPointProperties" Role="ToRole_APIProxyEndPointpropertiesEndPointProperty"/>
+                </AssociationSet>
+                <AssociationSet Name="APIProxyEndPointrouteRulesRouteRule" Association="-APIPortal.APIProxyEndPointrouteRulesRouteRule" sap:creatable="true" sap:updatable="true" sap:deletable="true">
+                    <End EntitySet="APIProxyEndPoints" Role="FromRole_APIProxyEndPointrouteRulesRouteRule"/>
+                    <End EntitySet="RouteRules" Role="ToRole_APIProxyEndPointrouteRulesRouteRule"/>
+                </AssociationSet>
+                <AssociationSet Name="APIProxyEndPointvirtualhostsVirtualHost" Association="-APIPortal.APIProxyEndPointvirtualhostsVirtualHost" sap:creatable="true" sap:updatable="true" sap:deletable="true">
+                    <End EntitySet="APIProxyEndPoints" Role="FromRole_APIProxyEndPointvirtualhostsVirtualHost"/>
+                    <End EntitySet="VirtualHosts" Role="ToRole_APIProxyEndPointvirtualhostsVirtualHost"/>
+                </AssociationSet>
+                <EntitySet Name="CertificateStores" EntityType="-APIPortal.CertificateStore" sap:creatable="false" sap:updatable="false" sap:deletable="false"/>
+                <AssociationSet Name="CertificateStorecertificatesCertificate" Association="-APIPortal.CertificateStorecertificatesCertificate" sap:creatable="true" sap:updatable="true" sap:deletable="true">
+                    <End EntitySet="CertificateStores" Role="FromRole_CertificateStorecertificatesCertificate"/>
+                    <End EntitySet="Certificates" Role="ToRole_CertificateStorecertificatesCertificate"/>
+                </AssociationSet>
+                <EntitySet Name="TemplatePolicys" EntityType="-APIPortal.TemplatePolicy" sap:creatable="false" sap:updatable="false" sap:deletable="false"/>
+                <AssociationSet Name="TemplatePolicypolicyTemplateContainerPolicyTemplateContainer" Association="-APIPortal.TemplatePolicypolicyTemplateContainerPolicyTemplateContainer" sap:creatable="true" sap:updatable="true" sap:deletable="true">
+                    <End EntitySet="TemplatePolicys" Role="FromRole_TemplatePolicypolicyTemplateContainerPolicyTemplateContainer"/>
+                    <End EntitySet="PolicyTemplateContainers" Role="ToRole_TemplatePolicypolicyTemplateContainerPolicyTemplateContainer"/>
+                </AssociationSet>
+                <EntitySet Name="APIProxies" EntityType="-APIPortal.APIProxy" sap:creatable="false" sap:updatable="false" sap:deletable="false"/>
+                <AssociationSet Name="APIProxyapiProductsAPIProduct" Association="-APIPortal.APIProxyapiProductsAPIProduct" sap:creatable="true" sap:updatable="true" sap:deletable="true">
+                    <End EntitySet="APIProxies" Role="FromRole_APIProxyapiProductsAPIProduct"/>
+                    <End EntitySet="APIProducts" Role="ToRole_APIProxyapiProductsAPIProduct"/>
+                </AssociationSet>
+                <AssociationSet Name="APIProxyapiProviderAPIProvider" Association="-APIPortal.APIProxyapiProviderAPIProvider" sap:creatable="true" sap:updatable="true" sap:deletable="true">
+                    <End EntitySet="APIProxies" Role="FromRole_APIProxyapiProviderAPIProvider"/>
+                    <End EntitySet="APIProviders" Role="ToRole_APIProxyapiProviderAPIProvider"/>
+                </AssociationSet>
+                <AssociationSet Name="APIProxycontentPackageContentPackageMapper" Association="-APIPortal.APIProxycontentPackageContentPackageMapper" sap:creatable="true" sap:updatable="true" sap:deletable="true">
+                    <End EntitySet="APIProxies" Role="FromRole_APIProxycontentPackageContentPackageMapper"/>
+                    <End EntitySet="ContentPackageMappers" Role="ToRole_APIProxycontentPackageContentPackageMapper"/>
+                </AssociationSet>
+                <AssociationSet Name="APIProxyfileResourcesFileResource" Association="-APIPortal.APIProxyfileResourcesFileResource" sap:creatable="true" sap:updatable="true" sap:deletable="true">
+                    <End EntitySet="APIProxies" Role="FromRole_APIProxyfileResourcesFileResource"/>
+                    <End EntitySet="FileResources" Role="ToRole_APIProxyfileResourcesFileResource"/>
+                </AssociationSet>
+                <AssociationSet Name="APIProxypoliciesPolicy" Association="-APIPortal.APIProxypoliciesPolicy" sap:creatable="true" sap:updatable="true" sap:deletable="true">
+                    <End EntitySet="APIProxies" Role="FromRole_APIProxypoliciesPolicy"/>
+                    <End EntitySet="Policies" Role="ToRole_APIProxypoliciesPolicy"/>
+                </AssociationSet>
+                <AssociationSet Name="APIProxyproxyEndPointsAPIProxyEndPoint" Association="-APIPortal.APIProxyproxyEndPointsAPIProxyEndPoint" sap:creatable="true" sap:updatable="true" sap:deletable="true">
+                    <End EntitySet="APIProxies" Role="FromRole_APIProxyproxyEndPointsAPIProxyEndPoint"/>
+                    <End EntitySet="APIProxyEndPoints" Role="ToRole_APIProxyproxyEndPointsAPIProxyEndPoint"/>
+                </AssociationSet>
+                <AssociationSet Name="APIProxyresourcesResource" Association="-APIPortal.APIProxyresourcesResource" sap:creatable="true" sap:updatable="true" sap:deletable="true">
+                    <End EntitySet="APIProxies" Role="FromRole_APIProxyresourcesResource"/>
+                    <End EntitySet="Resources" Role="ToRole_APIProxyresourcesResource"/>
+                </AssociationSet>
+                <AssociationSet Name="APIProxytargetAPIProxiesAPITargetEndPoint" Association="-APIPortal.APIProxytargetAPIProxiesAPITargetEndPoint" sap:creatable="true" sap:updatable="true" sap:deletable="true">
+                    <End EntitySet="APIProxies" Role="FromRole_APIProxytargetAPIProxiesAPITargetEndPoint"/>
+                    <End EntitySet="APITargetEndPoints" Role="ToRole_APIProxytargetAPIProxiesAPITargetEndPoint"/>
+                </AssociationSet>
+                <AssociationSet Name="APIProxytargetEndPointsAPITargetEndPoint" Association="-APIPortal.APIProxytargetEndPointsAPITargetEndPoint" sap:creatable="true" sap:updatable="true" sap:deletable="true">
+                    <End EntitySet="APIProxies" Role="FromRole_APIProxytargetEndPointsAPITargetEndPoint"/>
+                    <End EntitySet="APITargetEndPoints" Role="ToRole_APIProxytargetEndPointsAPITargetEndPoint"/>
+                </AssociationSet>
+                <EntitySet Name="EndPointProperties" EntityType="-APIPortal.EndPointProperty" sap:creatable="false" sap:updatable="false" sap:deletable="false"/>
+                <AssociationSet Name="EndPointPropertyproxyEndPointAPIProxyEndPoint" Association="-APIPortal.EndPointPropertyproxyEndPointAPIProxyEndPoint" sap:creatable="true" sap:updatable="true" sap:deletable="true">
+                    <End EntitySet="EndPointProperties" Role="FromRole_EndPointPropertyproxyEndPointAPIProxyEndPoint"/>
+                    <End EntitySet="APIProxyEndPoints" Role="ToRole_EndPointPropertyproxyEndPointAPIProxyEndPoint"/>
+                </AssociationSet>
+                <AssociationSet Name="EndPointPropertytargetEndPointAPITargetEndPoint" Association="-APIPortal.EndPointPropertytargetEndPointAPITargetEndPoint" sap:creatable="true" sap:updatable="true" sap:deletable="true">
+                    <End EntitySet="EndPointProperties" Role="FromRole_EndPointPropertytargetEndPointAPITargetEndPoint"/>
+                    <End EntitySet="APITargetEndPoints" Role="ToRole_EndPointPropertytargetEndPointAPITargetEndPoint"/>
+                </AssociationSet>
+                <EntitySet Name="Applications" EntityType="-APIPortal.Application" sap:creatable="false" sap:updatable="false" sap:deletable="false"/>
+                <AssociationSet Name="ApplicationapiProductsAPIProduct" Association="-APIPortal.ApplicationapiProductsAPIProduct" sap:creatable="true" sap:updatable="true" sap:deletable="true">
+                    <End EntitySet="Applications" Role="FromRole_ApplicationapiProductsAPIProduct"/>
+                    <End EntitySet="APIProducts" Role="ToRole_ApplicationapiProductsAPIProduct"/>
+                </AssociationSet>
+                <AssociationSet Name="ApplicationdeveloperDeveloper" Association="-APIPortal.ApplicationdeveloperDeveloper" sap:creatable="true" sap:updatable="true" sap:deletable="true">
+                    <End EntitySet="Applications" Role="FromRole_ApplicationdeveloperDeveloper"/>
+                    <End EntitySet="Developers" Role="ToRole_ApplicationdeveloperDeveloper"/>
+                </AssociationSet>
+                <AssociationSet Name="ApplicationresourcesResource" Association="-APIPortal.ApplicationresourcesResource" sap:creatable="true" sap:updatable="true" sap:deletable="true">
+                    <End EntitySet="Applications" Role="FromRole_ApplicationresourcesResource"/>
+                    <End EntitySet="Resources" Role="ToRole_ApplicationresourcesResource"/>
+                </AssociationSet>
+                <EntitySet Name="Steps" EntityType="-APIPortal.Step" sap:creatable="false" sap:updatable="false" sap:deletable="false"/>
+                <AssociationSet Name="StepdefaultFaultRuleDefaultFaultRule" Association="-APIPortal.StepdefaultFaultRuleDefaultFaultRule" sap:creatable="true" sap:updatable="true" sap:deletable="true">
+                    <End EntitySet="Steps" Role="FromRole_StepdefaultFaultRuleDefaultFaultRule"/>
+                    <End EntitySet="DefaultFaultRules" Role="ToRole_StepdefaultFaultRuleDefaultFaultRule"/>
+                </AssociationSet>
+                <AssociationSet Name="StepfaultRuleFaultRule" Association="-APIPortal.StepfaultRuleFaultRule" sap:creatable="true" sap:updatable="true" sap:deletable="true">
+                    <End EntitySet="Steps" Role="FromRole_StepfaultRuleFaultRule"/>
+                    <End EntitySet="FaultRules" Role="ToRole_StepfaultRuleFaultRule"/>
+                </AssociationSet>
+                <AssociationSet Name="StepstreamStream" Association="-APIPortal.StepstreamStream" sap:creatable="true" sap:updatable="true" sap:deletable="true">
+                    <End EntitySet="Steps" Role="FromRole_StepstreamStream"/>
+                    <End EntitySet="Streams" Role="ToRole_StepstreamStream"/>
+                </AssociationSet>
+                <EntitySet Name="APIProviders" EntityType="-APIPortal.APIProvider" sap:creatable="false" sap:updatable="false" sap:deletable="false"/>
+                <AssociationSet Name="APIProviderapiProxiesAPIProxy" Association="-APIPortal.APIProviderapiProxiesAPIProxy" sap:creatable="true" sap:updatable="true" sap:deletable="true">
+                    <End EntitySet="APIProviders" Role="FromRole_APIProviderapiProxiesAPIProxy"/>
+                    <End EntitySet="APIProxies" Role="ToRole_APIProviderapiProxiesAPIProxy"/>
+                </AssociationSet>
+                <AssociationSet Name="APIProviderresourcesResource" Association="-APIPortal.APIProviderresourcesResource" sap:creatable="true" sap:updatable="true" sap:deletable="true">
+                    <End EntitySet="APIProviders" Role="FromRole_APIProviderresourcesResource"/>
+                    <End EntitySet="Resources" Role="ToRole_APIProviderresourcesResource"/>
+                </AssociationSet>
+                <EntitySet Name="DestinationAndUrlMappings" EntityType="-APIPortal.DestinationAndUrlMapping" sap:creatable="false" sap:updatable="false" sap:deletable="false"/>
+                <EntitySet Name="Resources" EntityType="-APIPortal.Resource" sap:creatable="false" sap:updatable="false" sap:deletable="false"/>
+                <EntitySet Name="ContentPackageMappers" EntityType="-APIPortal.ContentPackageMapper" sap:creatable="false" sap:updatable="false" sap:deletable="false"/>
+                <AssociationSet Name="ContentPackageMapperapiProxyAPIProxy" Association="-APIPortal.ContentPackageMapperapiProxyAPIProxy" sap:creatable="true" sap:updatable="true" sap:deletable="true">
+                    <End EntitySet="ContentPackageMappers" Role="FromRole_ContentPackageMapperapiProxyAPIProxy"/>
+                    <End EntitySet="APIProxies" Role="ToRole_ContentPackageMapperapiProxyAPIProxy"/>
+                </AssociationSet>
+                <EntitySet Name="ConditionalFlowRules" EntityType="-APIPortal.ConditionalFlowRule" sap:creatable="false" sap:updatable="false" sap:deletable="false"/>
+                <AssociationSet Name="ConditionalFlowRuleapiResourceAPIResource" Association="-APIPortal.ConditionalFlowRuleapiResourceAPIResource" sap:creatable="true" sap:updatable="true" sap:deletable="true">
+                    <End EntitySet="ConditionalFlowRules" Role="FromRole_ConditionalFlowRuleapiResourceAPIResource"/>
+                    <End EntitySet="APIResources" Role="ToRole_ConditionalFlowRuleapiResourceAPIResource"/>
+                </AssociationSet>
+                <AssociationSet Name="ConditionalFlowRuleproxyEndPointAPIProxyEndPoint" Association="-APIPortal.ConditionalFlowRuleproxyEndPointAPIProxyEndPoint" sap:creatable="true" sap:updatable="true" sap:deletable="true">
+                    <End EntitySet="ConditionalFlowRules" Role="FromRole_ConditionalFlowRuleproxyEndPointAPIProxyEndPoint"/>
+                    <End EntitySet="APIProxyEndPoints" Role="ToRole_ConditionalFlowRuleproxyEndPointAPIProxyEndPoint"/>
+                </AssociationSet>
+                <AssociationSet Name="ConditionalFlowRulerequestStream" Association="-APIPortal.ConditionalFlowRulerequestStream" sap:creatable="true" sap:updatable="true" sap:deletable="true">
+                    <End EntitySet="ConditionalFlowRules" Role="FromRole_ConditionalFlowRulerequestStream"/>
+                    <End EntitySet="Streams" Role="ToRole_ConditionalFlowRulerequestStream"/>
+                </AssociationSet>
+                <AssociationSet Name="ConditionalFlowRuleresponseStream" Association="-APIPortal.ConditionalFlowRuleresponseStream" sap:creatable="true" sap:updatable="true" sap:deletable="true">
+                    <End EntitySet="ConditionalFlowRules" Role="FromRole_ConditionalFlowRuleresponseStream"/>
+                    <End EntitySet="Streams" Role="ToRole_ConditionalFlowRuleresponseStream"/>
+                </AssociationSet>
+                <AssociationSet Name="ConditionalFlowRuletargetEndPointAPITargetEndPoint" Association="-APIPortal.ConditionalFlowRuletargetEndPointAPITargetEndPoint" sap:creatable="true" sap:updatable="true" sap:deletable="true">
+                    <End EntitySet="ConditionalFlowRules" Role="FromRole_ConditionalFlowRuletargetEndPointAPITargetEndPoint"/>
+                    <End EntitySet="APITargetEndPoints" Role="ToRole_ConditionalFlowRuletargetEndPointAPITargetEndPoint"/>
+                </AssociationSet>
+                <EntitySet Name="DefaultFaultRules" EntityType="-APIPortal.DefaultFaultRule" sap:creatable="false" sap:updatable="false" sap:deletable="false"/>
+                <AssociationSet Name="DefaultFaultRuleproxyEndPointAPIProxyEndPoint" Association="-APIPortal.DefaultFaultRuleproxyEndPointAPIProxyEndPoint" sap:creatable="true" sap:updatable="true" sap:deletable="true">
+                    <End EntitySet="DefaultFaultRules" Role="FromRole_DefaultFaultRuleproxyEndPointAPIProxyEndPoint"/>
+                    <End EntitySet="APIProxyEndPoints" Role="ToRole_DefaultFaultRuleproxyEndPointAPIProxyEndPoint"/>
+                </AssociationSet>
+                <AssociationSet Name="DefaultFaultRulestepsStep" Association="-APIPortal.DefaultFaultRulestepsStep" sap:creatable="true" sap:updatable="true" sap:deletable="true">
+                    <End EntitySet="DefaultFaultRules" Role="FromRole_DefaultFaultRulestepsStep"/>
+                    <End EntitySet="Steps" Role="ToRole_DefaultFaultRulestepsStep"/>
+                </AssociationSet>
+                <AssociationSet Name="DefaultFaultRuletargetEndPointAPITargetEndPoint" Association="-APIPortal.DefaultFaultRuletargetEndPointAPITargetEndPoint" sap:creatable="true" sap:updatable="true" sap:deletable="true">
+                    <End EntitySet="DefaultFaultRules" Role="FromRole_DefaultFaultRuletargetEndPointAPITargetEndPoint"/>
+                    <End EntitySet="APITargetEndPoints" Role="ToRole_DefaultFaultRuletargetEndPointAPITargetEndPoint"/>
+                </AssociationSet>
+                <EntitySet Name="APIResources" EntityType="-APIPortal.APIResource" sap:creatable="false" sap:updatable="false" sap:deletable="false"/>
+                <AssociationSet Name="APIResourceapiProxyEndPointAPIProxyEndPoint" Association="-APIPortal.APIResourceapiProxyEndPointAPIProxyEndPoint" sap:creatable="true" sap:updatable="true" sap:deletable="true">
+                    <End EntitySet="APIResources" Role="FromRole_APIResourceapiProxyEndPointAPIProxyEndPoint"/>
+                    <End EntitySet="APIProxyEndPoints" Role="ToRole_APIResourceapiProxyEndPointAPIProxyEndPoint"/>
+                </AssociationSet>
+                <AssociationSet Name="APIResourcedocumentationsDocumentation" Association="-APIPortal.APIResourcedocumentationsDocumentation" sap:creatable="true" sap:updatable="true" sap:deletable="true">
+                    <End EntitySet="APIResources" Role="FromRole_APIResourcedocumentationsDocumentation"/>
+                    <End EntitySet="Documentations" Role="ToRole_APIResourcedocumentationsDocumentation"/>
+                </AssociationSet>
+                <AssociationSet Name="APIResourceresourcesResource" Association="-APIPortal.APIResourceresourcesResource" sap:creatable="true" sap:updatable="true" sap:deletable="true">
+                    <End EntitySet="APIResources" Role="FromRole_APIResourceresourcesResource"/>
+                    <End EntitySet="Resources" Role="ToRole_APIResourceresourcesResource"/>
+                </AssociationSet>
+                <EntitySet Name="APITargetEndPoints" EntityType="-APIPortal.APITargetEndPoint" sap:creatable="false" sap:updatable="false" sap:deletable="false"/>
+                <AssociationSet Name="APITargetEndPointapiProxyAPIProxy" Association="-APIPortal.APITargetEndPointapiProxyAPIProxy" sap:creatable="true" sap:updatable="true" sap:deletable="true">
+                    <End EntitySet="APITargetEndPoints" Role="FromRole_APITargetEndPointapiProxyAPIProxy"/>
+                    <End EntitySet="APIProxies" Role="ToRole_APITargetEndPointapiProxyAPIProxy"/>
+                </AssociationSet>
+                <AssociationSet Name="APITargetEndPointconditionalFlowsConditionalFlowRule" Association="-APIPortal.APITargetEndPointconditionalFlowsConditionalFlowRule" sap:creatable="true" sap:updatable="true" sap:deletable="true">
+                    <End EntitySet="APITargetEndPoints" Role="FromRole_APITargetEndPointconditionalFlowsConditionalFlowRule"/>
+                    <End EntitySet="ConditionalFlowRules" Role="ToRole_APITargetEndPointconditionalFlowsConditionalFlowRule"/>
+                </AssociationSet>
+                <AssociationSet Name="APITargetEndPointdefaultFaultRuleDefaultFaultRule" Association="-APIPortal.APITargetEndPointdefaultFaultRuleDefaultFaultRule" sap:creatable="true" sap:updatable="true" sap:deletable="true">
+                    <End EntitySet="APITargetEndPoints" Role="FromRole_APITargetEndPointdefaultFaultRuleDefaultFaultRule"/>
+                    <End EntitySet="DefaultFaultRules" Role="ToRole_APITargetEndPointdefaultFaultRuleDefaultFaultRule"/>
+                </AssociationSet>
+                <AssociationSet Name="APITargetEndPointfaultRulesFaultRule" Association="-APIPortal.APITargetEndPointfaultRulesFaultRule" sap:creatable="true" sap:updatable="true" sap:deletable="true">
+                    <End EntitySet="APITargetEndPoints" Role="FromRole_APITargetEndPointfaultRulesFaultRule"/>
+                    <End EntitySet="FaultRules" Role="ToRole_APITargetEndPointfaultRulesFaultRule"/>
+                </AssociationSet>
+                <AssociationSet Name="APITargetEndPointpostFlowFlowRule" Association="-APIPortal.APITargetEndPointpostFlowFlowRule" sap:creatable="true" sap:updatable="true" sap:deletable="true">
+                    <End EntitySet="APITargetEndPoints" Role="FromRole_APITargetEndPointpostFlowFlowRule"/>
+                    <End EntitySet="FlowRules" Role="ToRole_APITargetEndPointpostFlowFlowRule"/>
+                </AssociationSet>
+                <AssociationSet Name="APITargetEndPointpreFlowFlowRule" Association="-APIPortal.APITargetEndPointpreFlowFlowRule" sap:creatable="true" sap:updatable="true" sap:deletable="true">
+                    <End EntitySet="APITargetEndPoints" Role="FromRole_APITargetEndPointpreFlowFlowRule"/>
+                    <End EntitySet="FlowRules" Role="ToRole_APITargetEndPointpreFlowFlowRule"/>
+                </AssociationSet>
+                <AssociationSet Name="APITargetEndPointpropertiesEndPointProperty" Association="-APIPortal.APITargetEndPointpropertiesEndPointProperty" sap:creatable="true" sap:updatable="true" sap:deletable="true">
+                    <End EntitySet="APITargetEndPoints" Role="FromRole_APITargetEndPointpropertiesEndPointProperty"/>
+                    <End EntitySet="EndPointProperties" Role="ToRole_APITargetEndPointpropertiesEndPointProperty"/>
+                </AssociationSet>
+                <AssociationSet Name="APITargetEndPointtargetAPIProxyAPIProxy" Association="-APIPortal.APITargetEndPointtargetAPIProxyAPIProxy" sap:creatable="true" sap:updatable="true" sap:deletable="true">
+                    <End EntitySet="APITargetEndPoints" Role="FromRole_APITargetEndPointtargetAPIProxyAPIProxy"/>
+                    <End EntitySet="APIProxies" Role="ToRole_APITargetEndPointtargetAPIProxyAPIProxy"/>
+                </AssociationSet>
+                <EntitySet Name="FaultRules" EntityType="-APIPortal.FaultRule" sap:creatable="false" sap:updatable="false" sap:deletable="false"/>
+                <AssociationSet Name="FaultRuleproxyEndPointAPIProxyEndPoint" Association="-APIPortal.FaultRuleproxyEndPointAPIProxyEndPoint" sap:creatable="true" sap:updatable="true" sap:deletable="true">
+                    <End EntitySet="FaultRules" Role="FromRole_FaultRuleproxyEndPointAPIProxyEndPoint"/>
+                    <End EntitySet="APIProxyEndPoints" Role="ToRole_FaultRuleproxyEndPointAPIProxyEndPoint"/>
+                </AssociationSet>
+                <AssociationSet Name="FaultRulerouteRuleRouteRule" Association="-APIPortal.FaultRulerouteRuleRouteRule" sap:creatable="true" sap:updatable="true" sap:deletable="true">
+                    <End EntitySet="FaultRules" Role="FromRole_FaultRulerouteRuleRouteRule"/>
+                    <End EntitySet="RouteRules" Role="ToRole_FaultRulerouteRuleRouteRule"/>
+                </AssociationSet>
+                <AssociationSet Name="FaultRulestepsStep" Association="-APIPortal.FaultRulestepsStep" sap:creatable="true" sap:updatable="true" sap:deletable="true">
+                    <End EntitySet="FaultRules" Role="FromRole_FaultRulestepsStep"/>
+                    <End EntitySet="Steps" Role="ToRole_FaultRulestepsStep"/>
+                </AssociationSet>
+                <AssociationSet Name="FaultRuletargetEndPointAPITargetEndPoint" Association="-APIPortal.FaultRuletargetEndPointAPITargetEndPoint" sap:creatable="true" sap:updatable="true" sap:deletable="true">
+                    <End EntitySet="FaultRules" Role="FromRole_FaultRuletargetEndPointAPITargetEndPoint"/>
+                    <End EntitySet="APITargetEndPoints" Role="ToRole_FaultRuletargetEndPointAPITargetEndPoint"/>
+                </AssociationSet>
+                <EntitySet Name="APIProducts" EntityType="-APIPortal.APIProduct" sap:creatable="false" sap:updatable="false" sap:deletable="false"/>
+                <AssociationSet Name="APIProductapiProxiesAPIProxy" Association="-APIPortal.APIProductapiProxiesAPIProxy" sap:creatable="true" sap:updatable="true" sap:deletable="true">
+                    <End EntitySet="APIProducts" Role="FromRole_APIProductapiProxiesAPIProxy"/>
+                    <End EntitySet="APIProxies" Role="ToRole_APIProductapiProxiesAPIProxy"/>
+                </AssociationSet>
+                <AssociationSet Name="APIProductapiResourcesAPIResource" Association="-APIPortal.APIProductapiResourcesAPIResource" sap:creatable="true" sap:updatable="true" sap:deletable="true">
+                    <End EntitySet="APIProducts" Role="FromRole_APIProductapiResourcesAPIResource"/>
+                    <End EntitySet="APIResources" Role="ToRole_APIProductapiResourcesAPIResource"/>
+                </AssociationSet>
+                <AssociationSet Name="APIProductapplicationsApplication" Association="-APIPortal.APIProductapplicationsApplication" sap:creatable="true" sap:updatable="true" sap:deletable="true">
+                    <End EntitySet="APIProducts" Role="FromRole_APIProductapplicationsApplication"/>
+                    <End EntitySet="Applications" Role="ToRole_APIProductapplicationsApplication"/>
+                </AssociationSet>
+                <AssociationSet Name="APIProductratePlansRatePlan" Association="-APIPortal.APIProductratePlansRatePlan" sap:creatable="true" sap:updatable="true" sap:deletable="true">
+                    <End EntitySet="APIProducts" Role="FromRole_APIProductratePlansRatePlan"/>
+                    <End EntitySet="RatePlans" Role="ToRole_APIProductratePlansRatePlan"/>
+                </AssociationSet>
+                <AssociationSet Name="APIProductresourcesResource" Association="-APIPortal.APIProductresourcesResource" sap:creatable="true" sap:updatable="true" sap:deletable="true">
+                    <End EntitySet="APIProducts" Role="FromRole_APIProductresourcesResource"/>
+                    <End EntitySet="Resources" Role="ToRole_APIProductresourcesResource"/>
+                </AssociationSet>
+                <EntitySet Name="Documentations" EntityType="-APIPortal.Documentation" sap:creatable="false" sap:updatable="false" sap:deletable="false"/>
+                <AssociationSet Name="DocumentationapiResourceAPIResource" Association="-APIPortal.DocumentationapiResourceAPIResource" sap:creatable="true" sap:updatable="true" sap:deletable="true">
+                    <End EntitySet="Documentations" Role="FromRole_DocumentationapiResourceAPIResource"/>
+                    <End EntitySet="APIResources" Role="ToRole_DocumentationapiResourceAPIResource"/>
+                </AssociationSet>
+                <EntitySet Name="Certificates" EntityType="-APIPortal.Certificate" sap:creatable="false" sap:updatable="false" sap:deletable="false"/>
+                <AssociationSet Name="CertificatecertificateStoreCertificateStore" Association="-APIPortal.CertificatecertificateStoreCertificateStore" sap:creatable="true" sap:updatable="true" sap:deletable="true">
+                    <End EntitySet="Certificates" Role="FromRole_CertificatecertificateStoreCertificateStore"/>
+                    <End EntitySet="CertificateStores" Role="ToRole_CertificatecertificateStoreCertificateStore"/>
+                </AssociationSet>
+                <EntitySet Name="RatePlans" EntityType="-APIPortal.RatePlan" sap:creatable="false" sap:updatable="false" sap:deletable="false"/>
+                <AssociationSet Name="RatePlanapiProductsAPIProduct" Association="-APIPortal.RatePlanapiProductsAPIProduct" sap:creatable="true" sap:updatable="true" sap:deletable="true">
+                    <End EntitySet="RatePlans" Role="FromRole_RatePlanapiProductsAPIProduct"/>
+                    <End EntitySet="APIProducts" Role="ToRole_RatePlanapiProductsAPIProduct"/>
+                </AssociationSet>
+                <AssociationSet Name="RatePlanresourcesResource" Association="-APIPortal.RatePlanresourcesResource" sap:creatable="true" sap:updatable="true" sap:deletable="true">
+                    <End EntitySet="RatePlans" Role="FromRole_RatePlanresourcesResource"/>
+                    <End EntitySet="Resources" Role="ToRole_RatePlanresourcesResource"/>
+                </AssociationSet>
+                <EntitySet Name="PolicyTemplateContainers" EntityType="-APIPortal.PolicyTemplateContainer" sap:creatable="false" sap:updatable="false" sap:deletable="false"/>
+                <AssociationSet Name="PolicyTemplateContainerfileResourcesTemplateFileResource" Association="-APIPortal.PolicyTemplateContainerfileResourcesTemplateFileResource" sap:creatable="true" sap:updatable="true" sap:deletable="true">
+                    <End EntitySet="PolicyTemplateContainers" Role="FromRole_PolicyTemplateContainerfileResourcesTemplateFileResource"/>
+                    <End EntitySet="TemplateFileResources" Role="ToRole_PolicyTemplateContainerfileResourcesTemplateFileResource"/>
+                </AssociationSet>
+                <AssociationSet Name="PolicyTemplateContainerpoliciesTemplatePolicy" Association="-APIPortal.PolicyTemplateContainerpoliciesTemplatePolicy" sap:creatable="true" sap:updatable="true" sap:deletable="true">
+                    <End EntitySet="PolicyTemplateContainers" Role="FromRole_PolicyTemplateContainerpoliciesTemplatePolicy"/>
+                    <End EntitySet="TemplatePolicys" Role="ToRole_PolicyTemplateContainerpoliciesTemplatePolicy"/>
+                </AssociationSet>
+                <EntitySet Name="Bills" EntityType="-APIPortal.Bill" sap:creatable="false" sap:updatable="false" sap:deletable="false"/>
+                <EntitySet Name="RouteRules" EntityType="-APIPortal.RouteRule" sap:creatable="false" sap:updatable="false" sap:deletable="false"/>
+                <AssociationSet Name="RouteRulefaultRulesFaultRule" Association="-APIPortal.RouteRulefaultRulesFaultRule" sap:creatable="true" sap:updatable="true" sap:deletable="true">
+                    <End EntitySet="RouteRules" Role="FromRole_RouteRulefaultRulesFaultRule"/>
+                    <End EntitySet="FaultRules" Role="ToRole_RouteRulefaultRulesFaultRule"/>
+                </AssociationSet>
+                <AssociationSet Name="RouteRuleproxyEndPointAPIProxyEndPoint" Association="-APIPortal.RouteRuleproxyEndPointAPIProxyEndPoint" sap:creatable="true" sap:updatable="true" sap:deletable="true">
+                    <End EntitySet="RouteRules" Role="FromRole_RouteRuleproxyEndPointAPIProxyEndPoint"/>
+                    <End EntitySet="APIProxyEndPoints" Role="ToRole_RouteRuleproxyEndPointAPIProxyEndPoint"/>
+                </AssociationSet>
+                <EntitySet Name="KeyMapEntryValues" EntityType="-APIPortal.KeyMapEntryValue" sap:creatable="false" sap:updatable="false" sap:deletable="false"/>
+                <AssociationSet Name="KeyMapEntryValuekeyMapEntryKeyMapEntry" Association="-APIPortal.KeyMapEntryValuekeyMapEntryKeyMapEntry" sap:creatable="true" sap:updatable="true" sap:deletable="true">
+                    <End EntitySet="KeyMapEntryValues" Role="FromRole_KeyMapEntryValuekeyMapEntryKeyMapEntry"/>
+                    <End EntitySet="KeyMapEntries" Role="ToRole_KeyMapEntryValuekeyMapEntryKeyMapEntry"/>
+                </AssociationSet>
+                <EntitySet Name="FileResources" EntityType="-APIPortal.FileResource" sap:creatable="false" sap:updatable="false" sap:deletable="false"/>
+                <AssociationSet Name="FileResourceapiProxiesAPIProxy" Association="-APIPortal.FileResourceapiProxiesAPIProxy" sap:creatable="true" sap:updatable="true" sap:deletable="true">
+                    <End EntitySet="FileResources" Role="FromRole_FileResourceapiProxiesAPIProxy"/>
+                    <End EntitySet="APIProxies" Role="ToRole_FileResourceapiProxiesAPIProxy"/>
+                </AssociationSet>
+                <EntitySet Name="CacheResources" EntityType="-APIPortal.CacheResource" sap:creatable="false" sap:updatable="false" sap:deletable="false"/>
+                <EntitySet Name="Developers" EntityType="-APIPortal.Developer" sap:creatable="false" sap:updatable="false" sap:deletable="false"/>
+                <AssociationSet Name="DeveloperapplicationsApplication" Association="-APIPortal.DeveloperapplicationsApplication" sap:creatable="true" sap:updatable="true" sap:deletable="true">
+                    <End EntitySet="Developers" Role="FromRole_DeveloperapplicationsApplication"/>
+                    <End EntitySet="Applications" Role="ToRole_DeveloperapplicationsApplication"/>
+                </AssociationSet>
+                <EntitySet Name="Streams" EntityType="-APIPortal.Stream" sap:creatable="false" sap:updatable="false" sap:deletable="false"/>
+                <AssociationSet Name="StreamflowFlowRule" Association="-APIPortal.StreamflowFlowRule" sap:creatable="true" sap:updatable="true" sap:deletable="true">
+                    <End EntitySet="Streams" Role="FromRole_StreamflowFlowRule"/>
+                    <End EntitySet="FlowRules" Role="ToRole_StreamflowFlowRule"/>
+                </AssociationSet>
+                <AssociationSet Name="StreamstepsStep" Association="-APIPortal.StreamstepsStep" sap:creatable="true" sap:updatable="true" sap:deletable="true">
+                    <End EntitySet="Streams" Role="FromRole_StreamstepsStep"/>
+                    <End EntitySet="Steps" Role="ToRole_StreamstepsStep"/>
+                </AssociationSet>
+                <EntitySet Name="Policies" EntityType="-APIPortal.Policy" sap:creatable="false" sap:updatable="false" sap:deletable="false"/>
+                <AssociationSet Name="PolicyapiProxyAPIProxy" Association="-APIPortal.PolicyapiProxyAPIProxy" sap:creatable="true" sap:updatable="true" sap:deletable="true">
+                    <End EntitySet="Policies" Role="FromRole_PolicyapiProxyAPIProxy"/>
+                    <End EntitySet="APIProxies" Role="ToRole_PolicyapiProxyAPIProxy"/>
+                </AssociationSet>
+            </EntityContainer>
+            <EntityType Name="KeyMapEntry">
+                <Key>
+                    <PropertyRef Name="name"/>
+                </Key>
+                <Property Name="name" Type="Edm.String" sap:creatable="true" sap:updatable="true" sap:deletable="true" MaxLength="255" sap:label="name"/>
+                <Property Name="encrypted" Type="Edm.Boolean" sap:creatable="true" sap:updatable="true" sap:deletable="true" sap:label="encrypted"/>
+                <NavigationProperty Name="keyMapEntryValues" Relationship="-APIPortal.KeyMapEntrykeyMapEntryValuesKeyMapEntryValue" FromRole="FromRole_KeyMapEntrykeyMapEntryValuesKeyMapEntryValue" ToRole="ToRole_KeyMapEntrykeyMapEntryValuesKeyMapEntryValue"/>
+            </EntityType>
+            <Association Name="KeyMapEntrykeyMapEntryValuesKeyMapEntryValue">
+                <End Type="-APIPortal.KeyMapEntry" Multiplicity="1" Role="FromRole_KeyMapEntrykeyMapEntryValuesKeyMapEntryValue"/>
+                <End Type="-APIPortal.KeyMapEntryValue" Multiplicity="*" Role="ToRole_KeyMapEntrykeyMapEntryValuesKeyMapEntryValue"/>
+                <ReferentialConstraint>
+                    <Principal Role="FromRole_KeyMapEntrykeyMapEntryValuesKeyMapEntryValue">
+                        <PropertyRef Name="name"/>
+                    </Principal>
+                    <Dependent Role="ToRole_KeyMapEntrykeyMapEntryValuesKeyMapEntryValue">
+                        <PropertyRef Name="map_name"/>
+                    </Dependent>
+                </ReferentialConstraint>
+            </Association>
+            <EntityType Name="VirtualHost">
+                <Key>
+                    <PropertyRef Name="id"/>
+                </Key>
+                <Property Name="id" Type="Edm.String" sap:creatable="true" sap:updatable="true" sap:deletable="true" MaxLength="36" sap:label="id"/>
+                <Property Name="isDefault" Type="Edm.Boolean" sap:creatable="true" sap:updatable="true" sap:deletable="true" sap:label="isDefault"/>
+                <Property Name="isSSL" Type="Edm.Boolean" sap:creatable="true" sap:updatable="true" sap:deletable="true" sap:label="isSSL"/>
+                <Property Name="name" Type="Edm.String" sap:creatable="true" sap:updatable="true" sap:deletable="true" MaxLength="255" sap:label="name"/>
+                <Property Name="projectPath" Type="Edm.String" sap:creatable="true" sap:updatable="true" sap:deletable="true" MaxLength="255" sap:label="projectPath"/>
+                <Property Name="virtual_host" Type="Edm.String" sap:creatable="true" sap:updatable="true" sap:deletable="true" MaxLength="2048" sap:label="virtual_host"/>
+                <Property Name="virtual_port" Type="Edm.Int32" sap:creatable="true" sap:updatable="true" sap:deletable="true" sap:label="virtual_port"/>
+            </EntityType>
+            <EntityType Name="FlowRule">
+                <Key>
+                    <PropertyRef Name="id"/>
+                </Key>
+                <Property Name="id" Type="Edm.String" sap:creatable="true" sap:updatable="true" sap:deletable="true" MaxLength="36" sap:label="id"/>
+                <Property Name="FK_REQUEST_ID" Type="Edm.String" sap:creatable="true" sap:updatable="true" sap:deletable="true" MaxLength="36" sap:label="FK_REQUEST_ID"/>
+                <Property Name="FK_RESPONSE_ID" Type="Edm.String" sap:creatable="true" sap:updatable="true" sap:deletable="true" MaxLength="36" sap:label="FK_RESPONSE_ID"/>
+                <NavigationProperty Name="request" Relationship="-APIPortal.FlowRulerequestStream" FromRole="FromRole_FlowRulerequestStream" ToRole="ToRole_FlowRulerequestStream"/>
+                <NavigationProperty Name="response" Relationship="-APIPortal.FlowRuleresponseStream" FromRole="FromRole_FlowRuleresponseStream" ToRole="ToRole_FlowRuleresponseStream"/>
+            </EntityType>
+            <Association Name="FlowRulerequestStream">
+                <End Type="-APIPortal.FlowRule" Multiplicity="1" Role="FromRole_FlowRulerequestStream"/>
+                <End Type="-APIPortal.Stream" Multiplicity="1" Role="ToRole_FlowRulerequestStream"/>
+                <ReferentialConstraint>
+                    <Principal Role="ToRole_FlowRulerequestStream">
+                        <PropertyRef Name="id"/>
+                    </Principal>
+                    <Dependent Role="FromRole_FlowRulerequestStream">
+                        <PropertyRef Name="FK_REQUEST_ID"/>
+                    </Dependent>
+                </ReferentialConstraint>
+            </Association>
+            <Association Name="FlowRuleresponseStream">
+                <End Type="-APIPortal.FlowRule" Multiplicity="1" Role="FromRole_FlowRuleresponseStream"/>
+                <End Type="-APIPortal.Stream" Multiplicity="1" Role="ToRole_FlowRuleresponseStream"/>
+                <ReferentialConstraint>
+                    <Principal Role="ToRole_FlowRuleresponseStream">
+                        <PropertyRef Name="id"/>
+                    </Principal>
+                    <Dependent Role="FromRole_FlowRuleresponseStream">
+                        <PropertyRef Name="FK_RESPONSE_ID"/>
+                    </Dependent>
+                </ReferentialConstraint>
+            </Association>
+            <EntityType Name="TemplateFileResource">
+                <Key>
+                    <PropertyRef Name="id"/>
+                </Key>
+                <Property Name="id" Type="Edm.String" sap:creatable="true" sap:updatable="true" sap:deletable="true" MaxLength="36" sap:label="id"/>
+                <Property Name="FK_TEMPLATE_NAME" Type="Edm.String" sap:creatable="true" sap:updatable="true" sap:deletable="true" MaxLength="255" sap:label="FK_TEMPLATE_NAME"/>
+                <Property Name="content" Type="Edm.String" sap:creatable="true" sap:updatable="true" sap:deletable="true" sap:label="content"/>
+                <Property Name="name" Type="Edm.String" sap:creatable="true" sap:updatable="true" sap:deletable="true" MaxLength="255" sap:label="name"/>
+                <Property Name="scope" Type="Edm.String" sap:creatable="true" sap:updatable="true" sap:deletable="true" MaxLength="20" sap:label="scope"/>
+                <Property Name="type" Type="Edm.String" sap:creatable="true" sap:updatable="true" sap:deletable="true" MaxLength="10" sap:label="type"/>
+                <NavigationProperty Name="policyTemplateContainer" Relationship="-APIPortal.TemplateFileResourcepolicyTemplateContainerPolicyTemplateContainer" FromRole="FromRole_TemplateFileResourcepolicyTemplateContainerPolicyTemplateContainer" ToRole="ToRole_TemplateFileResourcepolicyTemplateContainerPolicyTemplateContainer"/>
+            </EntityType>
+            <Association Name="TemplateFileResourcepolicyTemplateContainerPolicyTemplateContainer">
+                <End Type="-APIPortal.TemplateFileResource" Multiplicity="1" Role="FromRole_TemplateFileResourcepolicyTemplateContainerPolicyTemplateContainer"/>
+                <End Type="-APIPortal.PolicyTemplateContainer" Multiplicity="1" Role="ToRole_TemplateFileResourcepolicyTemplateContainerPolicyTemplateContainer"/>
+                <ReferentialConstraint>
+                    <Principal Role="ToRole_TemplateFileResourcepolicyTemplateContainerPolicyTemplateContainer">
+                        <PropertyRef Name="name"/>
+                    </Principal>
+                    <Dependent Role="FromRole_TemplateFileResourcepolicyTemplateContainerPolicyTemplateContainer">
+                        <PropertyRef Name="FK_TEMPLATE_NAME"/>
+                    </Dependent>
+                </ReferentialConstraint>
+            </Association>
+            <EntityType Name="ACLProductLinkage">
+                <Key>
+                    <PropertyRef Name="ruleId"/>
+                </Key>
+                <Property Name="ruleId" Type="Edm.String" sap:creatable="true" sap:updatable="true" sap:deletable="true" MaxLength="255" sap:label="ruleId"/>
+                <Property Name="devportalRuleId" Type="Edm.String" sap:creatable="true" sap:updatable="true" sap:deletable="true" MaxLength="255" sap:label="devportalRuleId"/>
+                <Property Name="entityId" Type="Edm.String" sap:creatable="true" sap:updatable="true" sap:deletable="true" MaxLength="255" sap:label="entityId"/>
+                <Property Name="entityType" Type="Edm.String" sap:creatable="true" sap:updatable="true" sap:deletable="true" MaxLength="64" sap:label="entityType"/>
+                <Property Name="isPublished" Type="Edm.Boolean" sap:creatable="true" sap:updatable="true" sap:deletable="true" sap:label="isPublished"/>
+                <Property Name="operation" Type="Edm.String" sap:creatable="true" sap:updatable="true" sap:deletable="true" MaxLength="64" sap:label="operation"/>
+                <Property Name="permissionSet" Type="Edm.String" sap:creatable="true" sap:updatable="true" sap:deletable="true" MaxLength="1024" sap:label="permissionSet"/>
+            </EntityType>
+            <EntityType Name="APIProxyEndPoint">
+                <Key>
+                    <PropertyRef Name="id"/>
+                </Key>
+                <Property Name="id" Type="Edm.String" sap:creatable="true" sap:updatable="true" sap:deletable="true" MaxLength="36" sap:label="id"/>
+                <Property Name="FK_API_NAME" Type="Edm.String" sap:creatable="true" sap:updatable="true" sap:deletable="true" MaxLength="255" sap:label="FK_API_NAME"/>
+                <Property Name="FK_DEFAULTFAULTRULE_ID" Type="Edm.String" sap:creatable="true" sap:updatable="true" sap:deletable="true" MaxLength="36" sap:label="FK_DEFAULTFAULTRULE_ID"/>
+                <Property Name="FK_POSTCLIENTFLOW_ID" Type="Edm.String" sap:creatable="true" sap:updatable="true" sap:deletable="true" MaxLength="36" sap:label="FK_POSTCLIENTFLOW_ID"/>
+                <Property Name="FK_POSTFLOW_ID" Type="Edm.String" sap:creatable="true" sap:updatable="true" sap:deletable="true" MaxLength="36" sap:label="FK_POSTFLOW_ID"/>
+                <Property Name="FK_PREFLOW_ID" Type="Edm.String" sap:creatable="true" sap:updatable="true" sap:deletable="true" MaxLength="36" sap:label="FK_PREFLOW_ID"/>
+                <Property Name="base_path" Type="Edm.String" sap:creatable="true" sap:updatable="true" sap:deletable="true" sap:label="base_path"/>
+                <Property Name="isDefault" Type="Edm.Boolean" sap:creatable="true" sap:updatable="true" sap:deletable="true" sap:label="isDefault"/>
+                <Property Name="name" Type="Edm.String" sap:creatable="true" sap:updatable="true" sap:deletable="true" MaxLength="255" sap:label="name"/>
+                <Property Name="publishUrl" Type="Edm.String" sap:creatable="true" sap:updatable="true" sap:deletable="true" sap:label="publishUrl"/>
+                <NavigationProperty Name="apiProxy" Relationship="-APIPortal.APIProxyEndPointapiProxyAPIProxy" FromRole="FromRole_APIProxyEndPointapiProxyAPIProxy" ToRole="ToRole_APIProxyEndPointapiProxyAPIProxy"/>
+                <NavigationProperty Name="apiResources" Relationship="-APIPortal.APIProxyEndPointapiResourcesAPIResource" FromRole="FromRole_APIProxyEndPointapiResourcesAPIResource" ToRole="ToRole_APIProxyEndPointapiResourcesAPIResource"/>
+                <NavigationProperty Name="conditionalFlows" Relationship="-APIPortal.APIProxyEndPointconditionalFlowsConditionalFlowRule" FromRole="FromRole_APIProxyEndPointconditionalFlowsConditionalFlowRule" ToRole="ToRole_APIProxyEndPointconditionalFlowsConditionalFlowRule"/>
+                <NavigationProperty Name="defaultFaultRule" Relationship="-APIPortal.APIProxyEndPointdefaultFaultRuleDefaultFaultRule" FromRole="FromRole_APIProxyEndPointdefaultFaultRuleDefaultFaultRule" ToRole="ToRole_APIProxyEndPointdefaultFaultRuleDefaultFaultRule"/>
+                <NavigationProperty Name="faultRules" Relationship="-APIPortal.APIProxyEndPointfaultRulesFaultRule" FromRole="FromRole_APIProxyEndPointfaultRulesFaultRule" ToRole="ToRole_APIProxyEndPointfaultRulesFaultRule"/>
+                <NavigationProperty Name="postClientFlow" Relationship="-APIPortal.APIProxyEndPointpostClientFlowFlowRule" FromRole="FromRole_APIProxyEndPointpostClientFlowFlowRule" ToRole="ToRole_APIProxyEndPointpostClientFlowFlowRule"/>
+                <NavigationProperty Name="postFlow" Relationship="-APIPortal.APIProxyEndPointpostFlowFlowRule" FromRole="FromRole_APIProxyEndPointpostFlowFlowRule" ToRole="ToRole_APIProxyEndPointpostFlowFlowRule"/>
+                <NavigationProperty Name="preFlow" Relationship="-APIPortal.APIProxyEndPointpreFlowFlowRule" FromRole="FromRole_APIProxyEndPointpreFlowFlowRule" ToRole="ToRole_APIProxyEndPointpreFlowFlowRule"/>
+                <NavigationProperty Name="properties" Relationship="-APIPortal.APIProxyEndPointpropertiesEndPointProperty" FromRole="FromRole_APIProxyEndPointpropertiesEndPointProperty" ToRole="ToRole_APIProxyEndPointpropertiesEndPointProperty"/>
+                <NavigationProperty Name="routeRules" Relationship="-APIPortal.APIProxyEndPointrouteRulesRouteRule" FromRole="FromRole_APIProxyEndPointrouteRulesRouteRule" ToRole="ToRole_APIProxyEndPointrouteRulesRouteRule"/>
+                <NavigationProperty Name="virtualhosts" Relationship="-APIPortal.APIProxyEndPointvirtualhostsVirtualHost" FromRole="FromRole_APIProxyEndPointvirtualhostsVirtualHost" ToRole="ToRole_APIProxyEndPointvirtualhostsVirtualHost"/>
+            </EntityType>
+            <Association Name="APIProxyEndPointapiProxyAPIProxy">
+                <End Type="-APIPortal.APIProxyEndPoint" Multiplicity="1" Role="FromRole_APIProxyEndPointapiProxyAPIProxy"/>
+                <End Type="-APIPortal.APIProxy" Multiplicity="1" Role="ToRole_APIProxyEndPointapiProxyAPIProxy"/>
+                <ReferentialConstraint>
+                    <Principal Role="ToRole_APIProxyEndPointapiProxyAPIProxy">
+                        <PropertyRef Name="name"/>
+                    </Principal>
+                    <Dependent Role="FromRole_APIProxyEndPointapiProxyAPIProxy">
+                        <PropertyRef Name="FK_API_NAME"/>
+                    </Dependent>
+                </ReferentialConstraint>
+            </Association>
+            <Association Name="APIProxyEndPointapiResourcesAPIResource">
+                <End Type="-APIPortal.APIProxyEndPoint" Multiplicity="1" Role="FromRole_APIProxyEndPointapiResourcesAPIResource"/>
+                <End Type="-APIPortal.APIResource" Multiplicity="*" Role="ToRole_APIProxyEndPointapiResourcesAPIResource"/>
+                <ReferentialConstraint>
+                    <Principal Role="FromRole_APIProxyEndPointapiResourcesAPIResource">
+                        <PropertyRef Name="id"/>
+                    </Principal>
+                    <Dependent Role="ToRole_APIProxyEndPointapiResourcesAPIResource">
+                        <PropertyRef Name="FK_PROXYENDPOINT_ID"/>
+                    </Dependent>
+                </ReferentialConstraint>
+            </Association>
+            <Association Name="APIProxyEndPointconditionalFlowsConditionalFlowRule">
+                <End Type="-APIPortal.APIProxyEndPoint" Multiplicity="1" Role="FromRole_APIProxyEndPointconditionalFlowsConditionalFlowRule"/>
+                <End Type="-APIPortal.ConditionalFlowRule" Multiplicity="*" Role="ToRole_APIProxyEndPointconditionalFlowsConditionalFlowRule"/>
+            </Association>
+            <Association Name="APIProxyEndPointdefaultFaultRuleDefaultFaultRule">
+                <End Type="-APIPortal.APIProxyEndPoint" Multiplicity="1" Role="FromRole_APIProxyEndPointdefaultFaultRuleDefaultFaultRule"/>
+                <End Type="-APIPortal.DefaultFaultRule" Multiplicity="1" Role="ToRole_APIProxyEndPointdefaultFaultRuleDefaultFaultRule"/>
+                <ReferentialConstraint>
+                    <Principal Role="ToRole_APIProxyEndPointdefaultFaultRuleDefaultFaultRule">
+                        <PropertyRef Name="id"/>
+                    </Principal>
+                    <Dependent Role="FromRole_APIProxyEndPointdefaultFaultRuleDefaultFaultRule">
+                        <PropertyRef Name="FK_DEFAULTFAULTRULE_ID"/>
+                    </Dependent>
+                </ReferentialConstraint>
+            </Association>
+            <Association Name="APIProxyEndPointfaultRulesFaultRule">
+                <End Type="-APIPortal.APIProxyEndPoint" Multiplicity="1" Role="FromRole_APIProxyEndPointfaultRulesFaultRule"/>
+                <End Type="-APIPortal.FaultRule" Multiplicity="*" Role="ToRole_APIProxyEndPointfaultRulesFaultRule"/>
+                <ReferentialConstraint>
+                    <Principal Role="FromRole_APIProxyEndPointfaultRulesFaultRule">
+                        <PropertyRef Name="id"/>
+                    </Principal>
+                    <Dependent Role="ToRole_APIProxyEndPointfaultRulesFaultRule">
+                        <PropertyRef Name="FK_PROXYENDPOINT_ID"/>
+                    </Dependent>
+                </ReferentialConstraint>
+            </Association>
+            <Association Name="APIProxyEndPointpostClientFlowFlowRule">
+                <End Type="-APIPortal.APIProxyEndPoint" Multiplicity="1" Role="FromRole_APIProxyEndPointpostClientFlowFlowRule"/>
+                <End Type="-APIPortal.FlowRule" Multiplicity="1" Role="ToRole_APIProxyEndPointpostClientFlowFlowRule"/>
+                <ReferentialConstraint>
+                    <Principal Role="ToRole_APIProxyEndPointpostClientFlowFlowRule">
+                        <PropertyRef Name="id"/>
+                    </Principal>
+                    <Dependent Role="FromRole_APIProxyEndPointpostClientFlowFlowRule">
+                        <PropertyRef Name="FK_POSTCLIENTFLOW_ID"/>
+                    </Dependent>
+                </ReferentialConstraint>
+            </Association>
+            <Association Name="APIProxyEndPointpostFlowFlowRule">
+                <End Type="-APIPortal.APIProxyEndPoint" Multiplicity="1" Role="FromRole_APIProxyEndPointpostFlowFlowRule"/>
+                <End Type="-APIPortal.FlowRule" Multiplicity="1" Role="ToRole_APIProxyEndPointpostFlowFlowRule"/>
+                <ReferentialConstraint>
+                    <Principal Role="ToRole_APIProxyEndPointpostFlowFlowRule">
+                        <PropertyRef Name="id"/>
+                    </Principal>
+                    <Dependent Role="FromRole_APIProxyEndPointpostFlowFlowRule">
+                        <PropertyRef Name="FK_POSTFLOW_ID"/>
+                    </Dependent>
+                </ReferentialConstraint>
+            </Association>
+            <Association Name="APIProxyEndPointpreFlowFlowRule">
+                <End Type="-APIPortal.APIProxyEndPoint" Multiplicity="1" Role="FromRole_APIProxyEndPointpreFlowFlowRule"/>
+                <End Type="-APIPortal.FlowRule" Multiplicity="1" Role="ToRole_APIProxyEndPointpreFlowFlowRule"/>
+                <ReferentialConstraint>
+                    <Principal Role="ToRole_APIProxyEndPointpreFlowFlowRule">
+                        <PropertyRef Name="id"/>
+                    </Principal>
+                    <Dependent Role="FromRole_APIProxyEndPointpreFlowFlowRule">
+                        <PropertyRef Name="FK_PREFLOW_ID"/>
+                    </Dependent>
+                </ReferentialConstraint>
+            </Association>
+            <Association Name="APIProxyEndPointpropertiesEndPointProperty">
+                <End Type="-APIPortal.APIProxyEndPoint" Multiplicity="1" Role="FromRole_APIProxyEndPointpropertiesEndPointProperty"/>
+                <End Type="-APIPortal.EndPointProperty" Multiplicity="*" Role="ToRole_APIProxyEndPointpropertiesEndPointProperty"/>
+                <ReferentialConstraint>
+                    <Principal Role="FromRole_APIProxyEndPointpropertiesEndPointProperty">
+                        <PropertyRef Name="id"/>
+                    </Principal>
+                    <Dependent Role="ToRole_APIProxyEndPointpropertiesEndPointProperty">
+                        <PropertyRef Name="FK_PROXYENDPOINT_ID"/>
+                    </Dependent>
+                </ReferentialConstraint>
+            </Association>
+            <Association Name="APIProxyEndPointrouteRulesRouteRule">
+                <End Type="-APIPortal.APIProxyEndPoint" Multiplicity="1" Role="FromRole_APIProxyEndPointrouteRulesRouteRule"/>
+                <End Type="-APIPortal.RouteRule" Multiplicity="*" Role="ToRole_APIProxyEndPointrouteRulesRouteRule"/>
+                <ReferentialConstraint>
+                    <Principal Role="FromRole_APIProxyEndPointrouteRulesRouteRule">
+                        <PropertyRef Name="id"/>
+                    </Principal>
+                    <Dependent Role="ToRole_APIProxyEndPointrouteRulesRouteRule">
+                        <PropertyRef Name="FK_PROXYENDPOINT_ID"/>
+                    </Dependent>
+                </ReferentialConstraint>
+            </Association>
+            <Association Name="APIProxyEndPointvirtualhostsVirtualHost">
+                <End Type="-APIPortal.APIProxyEndPoint" Multiplicity="1" Role="FromRole_APIProxyEndPointvirtualhostsVirtualHost"/>
+                <End Type="-APIPortal.VirtualHost" Multiplicity="*" Role="ToRole_APIProxyEndPointvirtualhostsVirtualHost"/>
+            </Association>
+            <EntityType Name="CertificateStore">
+                <Key>
+                    <PropertyRef Name="name"/>
+                </Key>
+                <Property Name="name" Type="Edm.String" sap:creatable="true" sap:updatable="true" sap:deletable="true" MaxLength="200" sap:label="name"/>
+                <Property Name="storeType" Type="Edm.String" sap:creatable="true" sap:updatable="true" sap:deletable="true" MaxLength="20" sap:label="storeType"/>
+                <NavigationProperty Name="certificates" Relationship="-APIPortal.CertificateStorecertificatesCertificate" FromRole="FromRole_CertificateStorecertificatesCertificate" ToRole="ToRole_CertificateStorecertificatesCertificate"/>
+            </EntityType>
+            <Association Name="CertificateStorecertificatesCertificate">
+                <End Type="-APIPortal.CertificateStore" Multiplicity="1" Role="FromRole_CertificateStorecertificatesCertificate"/>
+                <End Type="-APIPortal.Certificate" Multiplicity="*" Role="ToRole_CertificateStorecertificatesCertificate"/>
+                <ReferentialConstraint>
+                    <Principal Role="FromRole_CertificateStorecertificatesCertificate">
+                        <PropertyRef Name="name"/>
+                    </Principal>
+                    <Dependent Role="ToRole_CertificateStorecertificatesCertificate">
+                        <PropertyRef Name="storeName"/>
+                    </Dependent>
+                </ReferentialConstraint>
+            </Association>
+            <EntityType Name="TemplatePolicy">
+                <Key>
+                    <PropertyRef Name="id"/>
+                </Key>
+                <Property Name="id" Type="Edm.String" sap:creatable="true" sap:updatable="true" sap:deletable="true" MaxLength="36" sap:label="id"/>
+                <Property Name="FK_TEMPLATE_NAME" Type="Edm.String" sap:creatable="true" sap:updatable="true" sap:deletable="true" MaxLength="255" sap:label="FK_TEMPLATE_NAME"/>
+                <Property Name="name" Type="Edm.String" sap:creatable="true" sap:updatable="true" sap:deletable="true" MaxLength="255" sap:label="name"/>
+                <Property Name="policy_content" Type="Edm.String" sap:creatable="true" sap:updatable="true" sap:deletable="true" sap:label="policy_content"/>
+                <Property Name="type" Type="Edm.String" sap:creatable="true" sap:updatable="true" sap:deletable="true" MaxLength="40" sap:label="type"/>
+                <NavigationProperty Name="policyTemplateContainer" Relationship="-APIPortal.TemplatePolicypolicyTemplateContainerPolicyTemplateContainer" FromRole="FromRole_TemplatePolicypolicyTemplateContainerPolicyTemplateContainer" ToRole="ToRole_TemplatePolicypolicyTemplateContainerPolicyTemplateContainer"/>
+            </EntityType>
+            <Association Name="TemplatePolicypolicyTemplateContainerPolicyTemplateContainer">
+                <End Type="-APIPortal.TemplatePolicy" Multiplicity="1" Role="FromRole_TemplatePolicypolicyTemplateContainerPolicyTemplateContainer"/>
+                <End Type="-APIPortal.PolicyTemplateContainer" Multiplicity="1" Role="ToRole_TemplatePolicypolicyTemplateContainerPolicyTemplateContainer"/>
+                <ReferentialConstraint>
+                    <Principal Role="ToRole_TemplatePolicypolicyTemplateContainerPolicyTemplateContainer">
+                        <PropertyRef Name="name"/>
+                    </Principal>
+                    <Dependent Role="FromRole_TemplatePolicypolicyTemplateContainerPolicyTemplateContainer">
+                        <PropertyRef Name="FK_TEMPLATE_NAME"/>
+                    </Dependent>
+                </ReferentialConstraint>
+            </Association>
+            <EntityType Name="APIProxy">
+                <Key>
+                    <PropertyRef Name="name"/>
+                </Key>
+                <Property Name="name" Type="Edm.String" sap:creatable="true" sap:updatable="true" sap:deletable="true" MaxLength="255" sap:label="name"/>
+                <Property Name="FK_PROVIDERNAME" Type="Edm.String" sap:creatable="true" sap:updatable="true" sap:deletable="true" MaxLength="200" sap:label="FK_PROVIDERNAME"/>
+                <Property Name="cfBindingId" Type="Edm.String" sap:creatable="true" sap:updatable="true" sap:deletable="true" MaxLength="36" sap:label="cfBindingId"/>
+                <Property Name="description" Type="Edm.String" sap:creatable="true" sap:updatable="true" sap:deletable="true" MaxLength="16000" sap:label="description"/>
+                <Property Name="isCopy" Type="Edm.Boolean" sap:creatable="true" sap:updatable="true" sap:deletable="true" sap:label="isCopy"/>
+                <Property Name="isPublished" Type="Edm.Boolean" sap:creatable="true" sap:updatable="true" sap:deletable="true" sap:label="isPublished"/>
+                <Property Name="provider_name" Type="Edm.String" sap:creatable="true" sap:updatable="true" sap:deletable="true" MaxLength="200" sap:label="provider_name"/>
+                <Property Name="service_code" Type="Edm.String" sap:creatable="true" sap:updatable="true" sap:deletable="true" MaxLength="20" sap:label="service_code"/>
+                <Property Name="state" Type="Edm.String" sap:creatable="true" sap:updatable="true" sap:deletable="true" MaxLength="10" sap:label="state"/>
+                <Property Name="status_code" Type="Edm.String" sap:creatable="true" sap:updatable="true" sap:deletable="true" MaxLength="20" sap:label="status_code"/>
+                <Property Name="title" Type="Edm.String" sap:creatable="true" sap:updatable="true" sap:deletable="true" MaxLength="255" sap:label="title"/>
+                <Property Name="version" Type="Edm.String" sap:creatable="true" sap:updatable="true" sap:deletable="true" MaxLength="10" sap:label="version"/>
+                <NavigationProperty Name="apiProducts" Relationship="-APIPortal.APIProxyapiProductsAPIProduct" FromRole="FromRole_APIProxyapiProductsAPIProduct" ToRole="ToRole_APIProxyapiProductsAPIProduct"/>
+                <NavigationProperty Name="apiProvider" Relationship="-APIPortal.APIProxyapiProviderAPIProvider" FromRole="FromRole_APIProxyapiProviderAPIProvider" ToRole="ToRole_APIProxyapiProviderAPIProvider"/>
+                <NavigationProperty Name="contentPackage" Relationship="-APIPortal.APIProxycontentPackageContentPackageMapper" FromRole="FromRole_APIProxycontentPackageContentPackageMapper" ToRole="ToRole_APIProxycontentPackageContentPackageMapper"/>
+                <NavigationProperty Name="fileResources" Relationship="-APIPortal.APIProxyfileResourcesFileResource" FromRole="FromRole_APIProxyfileResourcesFileResource" ToRole="ToRole_APIProxyfileResourcesFileResource"/>
+                <NavigationProperty Name="policies" Relationship="-APIPortal.APIProxypoliciesPolicy" FromRole="FromRole_APIProxypoliciesPolicy" ToRole="ToRole_APIProxypoliciesPolicy"/>
+                <NavigationProperty Name="proxyEndPoints" Relationship="-APIPortal.APIProxyproxyEndPointsAPIProxyEndPoint" FromRole="FromRole_APIProxyproxyEndPointsAPIProxyEndPoint" ToRole="ToRole_APIProxyproxyEndPointsAPIProxyEndPoint"/>
+                <NavigationProperty Name="resources" Relationship="-APIPortal.APIProxyresourcesResource" FromRole="FromRole_APIProxyresourcesResource" ToRole="ToRole_APIProxyresourcesResource"/>
+                <NavigationProperty Name="targetAPIProxies" Relationship="-APIPortal.APIProxytargetAPIProxiesAPITargetEndPoint" FromRole="FromRole_APIProxytargetAPIProxiesAPITargetEndPoint" ToRole="ToRole_APIProxytargetAPIProxiesAPITargetEndPoint"/>
+                <NavigationProperty Name="targetEndPoints" Relationship="-APIPortal.APIProxytargetEndPointsAPITargetEndPoint" FromRole="FromRole_APIProxytargetEndPointsAPITargetEndPoint" ToRole="ToRole_APIProxytargetEndPointsAPITargetEndPoint"/>
+            </EntityType>
+            <Association Name="APIProxyapiProductsAPIProduct">
+                <End Type="-APIPortal.APIProxy" Multiplicity="1" Role="FromRole_APIProxyapiProductsAPIProduct"/>
+                <End Type="-APIPortal.APIProduct" Multiplicity="*" Role="ToRole_APIProxyapiProductsAPIProduct"/>
+            </Association>
+            <Association Name="APIProxyapiProviderAPIProvider">
+                <End Type="-APIPortal.APIProxy" Multiplicity="1" Role="FromRole_APIProxyapiProviderAPIProvider"/>
+                <End Type="-APIPortal.APIProvider" Multiplicity="1" Role="ToRole_APIProxyapiProviderAPIProvider"/>
+                <ReferentialConstraint>
+                    <Principal Role="ToRole_APIProxyapiProviderAPIProvider">
+                        <PropertyRef Name="name"/>
+                    </Principal>
+                    <Dependent Role="FromRole_APIProxyapiProviderAPIProvider">
+                        <PropertyRef Name="FK_PROVIDERNAME"/>
+                    </Dependent>
+                </ReferentialConstraint>
+            </Association>
+            <Association Name="APIProxycontentPackageContentPackageMapper">
+                <End Type="-APIPortal.APIProxy" Multiplicity="1" Role="FromRole_APIProxycontentPackageContentPackageMapper"/>
+                <End Type="-APIPortal.ContentPackageMapper" Multiplicity="1" Role="ToRole_APIProxycontentPackageContentPackageMapper"/>
+            </Association>
+            <Association Name="APIProxyfileResourcesFileResource">
+                <End Type="-APIPortal.APIProxy" Multiplicity="1" Role="FromRole_APIProxyfileResourcesFileResource"/>
+                <End Type="-APIPortal.FileResource" Multiplicity="*" Role="ToRole_APIProxyfileResourcesFileResource"/>
+            </Association>
+            <Association Name="APIProxypoliciesPolicy">
+                <End Type="-APIPortal.APIProxy" Multiplicity="1" Role="FromRole_APIProxypoliciesPolicy"/>
+                <End Type="-APIPortal.Policy" Multiplicity="*" Role="ToRole_APIProxypoliciesPolicy"/>
+                <ReferentialConstraint>
+                    <Principal Role="FromRole_APIProxypoliciesPolicy">
+                        <PropertyRef Name="name"/>
+                    </Principal>
+                    <Dependent Role="ToRole_APIProxypoliciesPolicy">
+                        <PropertyRef Name="FK_API_NAME"/>
+                    </Dependent>
+                </ReferentialConstraint>
+            </Association>
+            <Association Name="APIProxyproxyEndPointsAPIProxyEndPoint">
+                <End Type="-APIPortal.APIProxy" Multiplicity="1" Role="FromRole_APIProxyproxyEndPointsAPIProxyEndPoint"/>
+                <End Type="-APIPortal.APIProxyEndPoint" Multiplicity="*" Role="ToRole_APIProxyproxyEndPointsAPIProxyEndPoint"/>
+                <ReferentialConstraint>
+                    <Principal Role="FromRole_APIProxyproxyEndPointsAPIProxyEndPoint">
+                        <PropertyRef Name="name"/>
+                    </Principal>
+                    <Dependent Role="ToRole_APIProxyproxyEndPointsAPIProxyEndPoint">
+                        <PropertyRef Name="FK_API_NAME"/>
+                    </Dependent>
+                </ReferentialConstraint>
+            </Association>
+            <Association Name="APIProxyresourcesResource">
+                <End Type="-APIPortal.APIProxy" Multiplicity="1" Role="FromRole_APIProxyresourcesResource"/>
+                <End Type="-APIPortal.Resource" Multiplicity="*" Role="ToRole_APIProxyresourcesResource"/>
+            </Association>
+            <Association Name="APIProxytargetAPIProxiesAPITargetEndPoint">
+                <End Type="-APIPortal.APIProxy" Multiplicity="1" Role="FromRole_APIProxytargetAPIProxiesAPITargetEndPoint"/>
+                <End Type="-APIPortal.APITargetEndPoint" Multiplicity="*" Role="ToRole_APIProxytargetAPIProxiesAPITargetEndPoint"/>
+            </Association>
+            <Association Name="APIProxytargetEndPointsAPITargetEndPoint">
+                <End Type="-APIPortal.APIProxy" Multiplicity="1" Role="FromRole_APIProxytargetEndPointsAPITargetEndPoint"/>
+                <End Type="-APIPortal.APITargetEndPoint" Multiplicity="*" Role="ToRole_APIProxytargetEndPointsAPITargetEndPoint"/>
+                <ReferentialConstraint>
+                    <Principal Role="FromRole_APIProxytargetEndPointsAPITargetEndPoint">
+                        <PropertyRef Name="name"/>
+                    </Principal>
+                    <Dependent Role="ToRole_APIProxytargetEndPointsAPITargetEndPoint">
+                        <PropertyRef Name="FK_API_NAME"/>
+                    </Dependent>
+                </ReferentialConstraint>
+            </Association>
+            <EntityType Name="EndPointProperty">
+                <Key>
+                    <PropertyRef Name="id"/>
+                </Key>
+                <Property Name="id" Type="Edm.String" sap:creatable="true" sap:updatable="true" sap:deletable="true" MaxLength="36" sap:label="id"/>
+                <Property Name="FK_PROXYENDPOINT_ID" Type="Edm.String" sap:creatable="true" sap:updatable="true" sap:deletable="true" MaxLength="36" sap:label="FK_PROXYENDPOINT_ID"/>
+                <Property Name="FK_TARGETENDPOINT_ID" Type="Edm.String" sap:creatable="true" sap:updatable="true" sap:deletable="true" MaxLength="36" sap:label="FK_TARGETENDPOINT_ID"/>
+                <Property Name="name" Type="Edm.String" sap:creatable="true" sap:updatable="true" sap:deletable="true" MaxLength="512" sap:label="name"/>
+                <Property Name="value" Type="Edm.String" sap:creatable="true" sap:updatable="true" sap:deletable="true" sap:label="value"/>
+                <NavigationProperty Name="proxyEndPoint" Relationship="-APIPortal.EndPointPropertyproxyEndPointAPIProxyEndPoint" FromRole="FromRole_EndPointPropertyproxyEndPointAPIProxyEndPoint" ToRole="ToRole_EndPointPropertyproxyEndPointAPIProxyEndPoint"/>
+                <NavigationProperty Name="targetEndPoint" Relationship="-APIPortal.EndPointPropertytargetEndPointAPITargetEndPoint" FromRole="FromRole_EndPointPropertytargetEndPointAPITargetEndPoint" ToRole="ToRole_EndPointPropertytargetEndPointAPITargetEndPoint"/>
+            </EntityType>
+            <Association Name="EndPointPropertyproxyEndPointAPIProxyEndPoint">
+                <End Type="-APIPortal.EndPointProperty" Multiplicity="1" Role="FromRole_EndPointPropertyproxyEndPointAPIProxyEndPoint"/>
+                <End Type="-APIPortal.APIProxyEndPoint" Multiplicity="1" Role="ToRole_EndPointPropertyproxyEndPointAPIProxyEndPoint"/>
+                <ReferentialConstraint>
+                    <Principal Role="ToRole_EndPointPropertyproxyEndPointAPIProxyEndPoint">
+                        <PropertyRef Name="id"/>
+                    </Principal>
+                    <Dependent Role="FromRole_EndPointPropertyproxyEndPointAPIProxyEndPoint">
+                        <PropertyRef Name="FK_PROXYENDPOINT_ID"/>
+                    </Dependent>
+                </ReferentialConstraint>
+            </Association>
+            <Association Name="EndPointPropertytargetEndPointAPITargetEndPoint">
+                <End Type="-APIPortal.EndPointProperty" Multiplicity="1" Role="FromRole_EndPointPropertytargetEndPointAPITargetEndPoint"/>
+                <End Type="-APIPortal.APITargetEndPoint" Multiplicity="1" Role="ToRole_EndPointPropertytargetEndPointAPITargetEndPoint"/>
+                <ReferentialConstraint>
+                    <Principal Role="ToRole_EndPointPropertytargetEndPointAPITargetEndPoint">
+                        <PropertyRef Name="id"/>
+                    </Principal>
+                    <Dependent Role="FromRole_EndPointPropertytargetEndPointAPITargetEndPoint">
+                        <PropertyRef Name="FK_TARGETENDPOINT_ID"/>
+                    </Dependent>
+                </ReferentialConstraint>
+            </Association>
+            <EntityType Name="Application">
+                <Key>
+                    <PropertyRef Name="id"/>
+                </Key>
+                <Property Name="id" Type="Edm.String" sap:creatable="true" sap:updatable="true" sap:deletable="true" MaxLength="36" sap:label="id"/>
+                <Property Name="FK_DEVELOPER_ID" Type="Edm.String" sap:creatable="true" sap:updatable="true" sap:deletable="true" MaxLength="256" sap:label="FK_DEVELOPER_ID"/>
+                <Property Name="app_key" Type="Edm.String" sap:creatable="true" sap:updatable="true" sap:deletable="true" MaxLength="256" sap:label="app_key"/>
+                <Property Name="app_secret" Type="Edm.String" sap:creatable="true" sap:updatable="true" sap:deletable="true" MaxLength="1000" sap:label="app_secret"/>
+                <Property Name="callbackurl" Type="Edm.String" sap:creatable="true" sap:updatable="true" sap:deletable="true" MaxLength="255" sap:label="callbackurl"/>
+                <Property Name="description" Type="Edm.String" sap:creatable="true" sap:updatable="true" sap:deletable="true" MaxLength="16000" sap:label="description"/>
+                <Property Name="status_code" Type="Edm.String" sap:creatable="true" sap:updatable="true" sap:deletable="true" MaxLength="20" sap:label="status_code"/>
+                <Property Name="subscribedRatePlan" Type="Edm.String" sap:creatable="true" sap:updatable="true" sap:deletable="true" sap:label="subscribedRatePlan"/>
+                <Property Name="title" Type="Edm.String" sap:creatable="true" sap:updatable="true" sap:deletable="true" MaxLength="255" sap:label="title"/>
+                <Property Name="valid_from" Type="Edm.DateTime" sap:creatable="true" sap:updatable="true" sap:deletable="true" sap:display-format="Date" sap:label="valid_from"/>
+                <Property Name="valid_to" Type="Edm.DateTime" sap:creatable="true" sap:updatable="true" sap:deletable="true" sap:display-format="Date" sap:label="valid_to"/>
+                <Property Name="version" Type="Edm.String" sap:creatable="true" sap:updatable="true" sap:deletable="true" MaxLength="10" sap:label="version"/>
+                <NavigationProperty Name="apiProducts" Relationship="-APIPortal.ApplicationapiProductsAPIProduct" FromRole="FromRole_ApplicationapiProductsAPIProduct" ToRole="ToRole_ApplicationapiProductsAPIProduct"/>
+                <NavigationProperty Name="developer" Relationship="-APIPortal.ApplicationdeveloperDeveloper" FromRole="FromRole_ApplicationdeveloperDeveloper" ToRole="ToRole_ApplicationdeveloperDeveloper"/>
+                <NavigationProperty Name="resources" Relationship="-APIPortal.ApplicationresourcesResource" FromRole="FromRole_ApplicationresourcesResource" ToRole="ToRole_ApplicationresourcesResource"/>
+            </EntityType>
+            <Association Name="ApplicationapiProductsAPIProduct">
+                <End Type="-APIPortal.Application" Multiplicity="1" Role="FromRole_ApplicationapiProductsAPIProduct"/>
+                <End Type="-APIPortal.APIProduct" Multiplicity="*" Role="ToRole_ApplicationapiProductsAPIProduct"/>
+            </Association>
+            <Association Name="ApplicationdeveloperDeveloper">
+                <End Type="-APIPortal.Application" Multiplicity="1" Role="FromRole_ApplicationdeveloperDeveloper"/>
+                <End Type="-APIPortal.Developer" Multiplicity="1" Role="ToRole_ApplicationdeveloperDeveloper"/>
+                <ReferentialConstraint>
+                    <Principal Role="ToRole_ApplicationdeveloperDeveloper">
+                        <PropertyRef Name="id"/>
+                    </Principal>
+                    <Dependent Role="FromRole_ApplicationdeveloperDeveloper">
+                        <PropertyRef Name="FK_DEVELOPER_ID"/>
+                    </Dependent>
+                </ReferentialConstraint>
+            </Association>
+            <Association Name="ApplicationresourcesResource">
+                <End Type="-APIPortal.Application" Multiplicity="1" Role="FromRole_ApplicationresourcesResource"/>
+                <End Type="-APIPortal.Resource" Multiplicity="*" Role="ToRole_ApplicationresourcesResource"/>
+            </Association>
+            <EntityType Name="Step">
+                <Key>
+                    <PropertyRef Name="id"/>
+                </Key>
+                <Property Name="id" Type="Edm.String" sap:creatable="true" sap:updatable="true" sap:deletable="true" MaxLength="36" sap:label="id"/>
+                <Property Name="FK_DEFAULTFAULTRULE_ID" Type="Edm.String" sap:creatable="true" sap:updatable="true" sap:deletable="true" MaxLength="36" sap:label="FK_DEFAULTFAULTRULE_ID"/>
+                <Property Name="FK_FAULTRULE_ID" Type="Edm.String" sap:creatable="true" sap:updatable="true" sap:deletable="true" MaxLength="36" sap:label="FK_FAULTRULE_ID"/>
+                <Property Name="FK_STREAM_ID" Type="Edm.String" sap:creatable="true" sap:updatable="true" sap:deletable="true" MaxLength="36" sap:label="FK_STREAM_ID"/>
+                <Property Name="condition" Type="Edm.String" sap:creatable="true" sap:updatable="true" sap:deletable="true" sap:label="condition"/>
+                <Property Name="policy_name" Type="Edm.String" sap:creatable="true" sap:updatable="true" sap:deletable="true" MaxLength="255" sap:label="policy_name"/>
+                <Property Name="sequence" Type="Edm.Int32" sap:creatable="true" sap:updatable="true" sap:deletable="true" sap:label="sequence"/>
+                <NavigationProperty Name="defaultFaultRule" Relationship="-APIPortal.StepdefaultFaultRuleDefaultFaultRule" FromRole="FromRole_StepdefaultFaultRuleDefaultFaultRule" ToRole="ToRole_StepdefaultFaultRuleDefaultFaultRule"/>
+                <NavigationProperty Name="faultRule" Relationship="-APIPortal.StepfaultRuleFaultRule" FromRole="FromRole_StepfaultRuleFaultRule" ToRole="ToRole_StepfaultRuleFaultRule"/>
+                <NavigationProperty Name="stream" Relationship="-APIPortal.StepstreamStream" FromRole="FromRole_StepstreamStream" ToRole="ToRole_StepstreamStream"/>
+            </EntityType>
+            <Association Name="StepdefaultFaultRuleDefaultFaultRule">
+                <End Type="-APIPortal.Step" Multiplicity="1" Role="FromRole_StepdefaultFaultRuleDefaultFaultRule"/>
+                <End Type="-APIPortal.DefaultFaultRule" Multiplicity="1" Role="ToRole_StepdefaultFaultRuleDefaultFaultRule"/>
+                <ReferentialConstraint>
+                    <Principal Role="ToRole_StepdefaultFaultRuleDefaultFaultRule">
+                        <PropertyRef Name="id"/>
+                    </Principal>
+                    <Dependent Role="FromRole_StepdefaultFaultRuleDefaultFaultRule">
+                        <PropertyRef Name="FK_DEFAULTFAULTRULE_ID"/>
+                    </Dependent>
+                </ReferentialConstraint>
+            </Association>
+            <Association Name="StepfaultRuleFaultRule">
+                <End Type="-APIPortal.Step" Multiplicity="1" Role="FromRole_StepfaultRuleFaultRule"/>
+                <End Type="-APIPortal.FaultRule" Multiplicity="1" Role="ToRole_StepfaultRuleFaultRule"/>
+                <ReferentialConstraint>
+                    <Principal Role="ToRole_StepfaultRuleFaultRule">
+                        <PropertyRef Name="id"/>
+                    </Principal>
+                    <Dependent Role="FromRole_StepfaultRuleFaultRule">
+                        <PropertyRef Name="FK_FAULTRULE_ID"/>
+                    </Dependent>
+                </ReferentialConstraint>
+            </Association>
+            <Association Name="StepstreamStream">
+                <End Type="-APIPortal.Step" Multiplicity="1" Role="FromRole_StepstreamStream"/>
+                <End Type="-APIPortal.Stream" Multiplicity="1" Role="ToRole_StepstreamStream"/>
+                <ReferentialConstraint>
+                    <Principal Role="ToRole_StepstreamStream">
+                        <PropertyRef Name="id"/>
+                    </Principal>
+                    <Dependent Role="FromRole_StepstreamStream">
+                        <PropertyRef Name="FK_STREAM_ID"/>
+                    </Dependent>
+                </ReferentialConstraint>
+            </Association>
+            <EntityType Name="APIProvider">
+                <Key>
+                    <PropertyRef Name="name"/>
+                </Key>
+                <Property Name="name" Type="Edm.String" sap:creatable="true" sap:updatable="true" sap:deletable="true" MaxLength="200" sap:label="name"/>
+                <Property Name="authType" Type="Edm.String" sap:creatable="true" sap:updatable="true" sap:deletable="true" MaxLength="126" sap:label="authType"/>
+                <Property Name="cloudConnectorLocation" Type="Edm.String" sap:creatable="true" sap:updatable="true" sap:deletable="true" MaxLength="2048" sap:label="cloudConnectorLocation"/>
+                <Property Name="cockpit_url" Type="Edm.String" sap:creatable="true" sap:updatable="true" sap:deletable="true" sap:label="cockpit_url"/>
+                <Property Name="description" Type="Edm.String" sap:creatable="true" sap:updatable="true" sap:deletable="true" MaxLength="16000" sap:label="description"/>
+                <Property Name="destType" Type="Edm.String" sap:creatable="true" sap:updatable="true" sap:deletable="true" MaxLength="10" sap:label="destType"/>
+                <Property Name="host" Type="Edm.String" sap:creatable="true" sap:updatable="true" sap:deletable="true" MaxLength="2048" sap:label="host"/>
+                <Property Name="isOnPremise" Type="Edm.Boolean" sap:creatable="true" sap:updatable="true" sap:deletable="true" sap:label="isOnPremise"/>
+                <Property Name="password" Type="Edm.String" sap:creatable="true" sap:updatable="true" sap:deletable="true" MaxLength="126" sap:label="password"/>
+                <Property Name="pathPrefix" Type="Edm.String" sap:creatable="true" sap:updatable="true" sap:deletable="true" MaxLength="2048" sap:label="pathPrefix"/>
+                <Property Name="port" Type="Edm.Int32" sap:creatable="true" sap:updatable="true" sap:deletable="true" sap:label="port"/>
+                <Property Name="rt_auth" Type="Edm.String" sap:creatable="true" sap:updatable="true" sap:deletable="true" MaxLength="255" sap:label="rt_auth"/>
+                <Property Name="timeout" Type="Edm.Int32" sap:creatable="true" sap:updatable="true" sap:deletable="true" sap:label="timeout"/>
+                <Property Name="title" Type="Edm.String" sap:creatable="true" sap:updatable="true" sap:deletable="true" MaxLength="255" sap:label="title"/>
+                <Property Name="trustAll" Type="Edm.Boolean" sap:creatable="true" sap:updatable="true" sap:deletable="true" sap:label="trustAll"/>
+                <Property Name="url" Type="Edm.String" sap:creatable="true" sap:updatable="true" sap:deletable="true" sap:label="url"/>
+                <Property Name="useSSL" Type="Edm.Boolean" sap:creatable="true" sap:updatable="true" sap:deletable="true" sap:label="useSSL"/>
+                <Property Name="userName" Type="Edm.String" sap:creatable="true" sap:updatable="true" sap:deletable="true" MaxLength="2048" sap:label="userName"/>
+                <NavigationProperty Name="apiProxies" Relationship="-APIPortal.APIProviderapiProxiesAPIProxy" FromRole="FromRole_APIProviderapiProxiesAPIProxy" ToRole="ToRole_APIProviderapiProxiesAPIProxy"/>
+                <NavigationProperty Name="resources" Relationship="-APIPortal.APIProviderresourcesResource" FromRole="FromRole_APIProviderresourcesResource" ToRole="ToRole_APIProviderresourcesResource"/>
+            </EntityType>
+            <Association Name="APIProviderapiProxiesAPIProxy">
+                <End Type="-APIPortal.APIProvider" Multiplicity="1" Role="FromRole_APIProviderapiProxiesAPIProxy"/>
+                <End Type="-APIPortal.APIProxy" Multiplicity="*" Role="ToRole_APIProviderapiProxiesAPIProxy"/>
+                <ReferentialConstraint>
+                    <Principal Role="FromRole_APIProviderapiProxiesAPIProxy">
+                        <PropertyRef Name="name"/>
+                    </Principal>
+                    <Dependent Role="ToRole_APIProviderapiProxiesAPIProxy">
+                        <PropertyRef Name="FK_PROVIDERNAME"/>
+                    </Dependent>
+                </ReferentialConstraint>
+            </Association>
+            <Association Name="APIProviderresourcesResource">
+                <End Type="-APIPortal.APIProvider" Multiplicity="1" Role="FromRole_APIProviderresourcesResource"/>
+                <End Type="-APIPortal.Resource" Multiplicity="*" Role="ToRole_APIProviderresourcesResource"/>
+            </Association>
+            <EntityType Name="DestinationAndUrlMapping">
+                <Key>
+                    <PropertyRef Name="id"/>
+                </Key>
+                <Property Name="id" Type="Edm.String" sap:creatable="true" sap:updatable="true" sap:deletable="true" MaxLength="36" sap:label="id"/>
+                <Property Name="destination" Type="Edm.String" sap:creatable="true" sap:updatable="true" sap:deletable="true" MaxLength="256" sap:label="destination"/>
+                <Property Name="url" Type="Edm.String" sap:creatable="true" sap:updatable="true" sap:deletable="true" MaxLength="2048" sap:label="url"/>
+            </EntityType>
+            <EntityType Name="Resource">
+                <Key>
+                    <PropertyRef Name="locale"/>
+                    <PropertyRef Name="object_id"/>
+                    <PropertyRef Name="type"/>
+                </Key>
+                <Property Name="locale" Type="Edm.String" sap:creatable="true" sap:updatable="true" sap:deletable="true" MaxLength="5" sap:label="locale"/>
+                <Property Name="object_id" Type="Edm.String" sap:creatable="true" sap:updatable="true" sap:deletable="true" MaxLength="255" sap:label="object_id"/>
+                <Property Name="type" Type="Edm.String" sap:creatable="true" sap:updatable="true" sap:deletable="true" MaxLength="2" sap:label="type"/>
+                <Property Name="long_text" Type="Edm.String" sap:creatable="true" sap:updatable="true" sap:deletable="true" MaxLength="16000" sap:label="long_text"/>
+                <Property Name="medium_text" Type="Edm.String" sap:creatable="true" sap:updatable="true" sap:deletable="true" MaxLength="255" sap:label="medium_text"/>
+                <Property Name="short_text" Type="Edm.String" sap:creatable="true" sap:updatable="true" sap:deletable="true" MaxLength="255" sap:label="short_text"/>
+            </EntityType>
+            <EntityType Name="ContentPackageMapper">
+                <Key>
+                    <PropertyRef Name="targetId"/>
+                    <PropertyRef Name="targetType"/>
+                </Key>
+                <Property Name="targetId" Type="Edm.String" sap:creatable="true" sap:updatable="true" sap:deletable="true" MaxLength="255" sap:label="targetId"/>
+                <Property Name="targetType" Type="Edm.String" sap:creatable="true" sap:updatable="true" sap:deletable="true" MaxLength="255" sap:label="targetType"/>
+                <Property Name="content" Type="Edm.String" sap:creatable="true" sap:updatable="true" sap:deletable="true" MaxLength="255" sap:label="content"/>
+                <Property Name="srcArtifactName" Type="Edm.String" sap:creatable="true" sap:updatable="true" sap:deletable="true" MaxLength="255" sap:label="srcArtifactName"/>
+                <Property Name="srcArtifactType" Type="Edm.String" sap:creatable="true" sap:updatable="true" sap:deletable="true" MaxLength="255" sap:label="srcArtifactType"/>
+                <Property Name="srcPackageID" Type="Edm.String" sap:creatable="true" sap:updatable="true" sap:deletable="true" MaxLength="255" sap:label="srcPackageID"/>
+                <Property Name="srcRepo" Type="Edm.String" sap:creatable="true" sap:updatable="true" sap:deletable="true" MaxLength="255" sap:label="srcRepo"/>
+                <NavigationProperty Name="apiProxy" Relationship="-APIPortal.ContentPackageMapperapiProxyAPIProxy" FromRole="FromRole_ContentPackageMapperapiProxyAPIProxy" ToRole="ToRole_ContentPackageMapperapiProxyAPIProxy"/>
+            </EntityType>
+            <Association Name="ContentPackageMapperapiProxyAPIProxy">
+                <End Type="-APIPortal.ContentPackageMapper" Multiplicity="1" Role="FromRole_ContentPackageMapperapiProxyAPIProxy"/>
+                <End Type="-APIPortal.APIProxy" Multiplicity="1" Role="ToRole_ContentPackageMapperapiProxyAPIProxy"/>
+            </Association>
+            <EntityType Name="ConditionalFlowRule">
+                <Key>
+                    <PropertyRef Name="id"/>
+                </Key>
+                <Property Name="id" Type="Edm.String" sap:creatable="true" sap:updatable="true" sap:deletable="true" MaxLength="36" sap:label="id"/>
+                <Property Name="FK_REQUEST_ID" Type="Edm.String" sap:creatable="true" sap:updatable="true" sap:deletable="true" MaxLength="36" sap:label="FK_REQUEST_ID"/>
+                <Property Name="FK_RESPONSE_ID" Type="Edm.String" sap:creatable="true" sap:updatable="true" sap:deletable="true" MaxLength="36" sap:label="FK_RESPONSE_ID"/>
+                <Property Name="conditions" Type="Edm.String" sap:creatable="true" sap:updatable="true" sap:deletable="true" sap:label="conditions"/>
+                <Property Name="name" Type="Edm.String" sap:creatable="true" sap:updatable="true" sap:deletable="true" MaxLength="255" sap:label="name"/>
+                <Property Name="readOnly" Type="Edm.Boolean" sap:creatable="true" sap:updatable="true" sap:deletable="true" sap:label="readOnly"/>
+                <Property Name="sequence" Type="Edm.Int32" sap:creatable="true" sap:updatable="true" sap:deletable="true" sap:label="sequence"/>
+                <NavigationProperty Name="apiResource" Relationship="-APIPortal.ConditionalFlowRuleapiResourceAPIResource" FromRole="FromRole_ConditionalFlowRuleapiResourceAPIResource" ToRole="ToRole_ConditionalFlowRuleapiResourceAPIResource"/>
+                <NavigationProperty Name="proxyEndPoint" Relationship="-APIPortal.ConditionalFlowRuleproxyEndPointAPIProxyEndPoint" FromRole="FromRole_ConditionalFlowRuleproxyEndPointAPIProxyEndPoint" ToRole="ToRole_ConditionalFlowRuleproxyEndPointAPIProxyEndPoint"/>
+                <NavigationProperty Name="request" Relationship="-APIPortal.ConditionalFlowRulerequestStream" FromRole="FromRole_ConditionalFlowRulerequestStream" ToRole="ToRole_ConditionalFlowRulerequestStream"/>
+                <NavigationProperty Name="response" Relationship="-APIPortal.ConditionalFlowRuleresponseStream" FromRole="FromRole_ConditionalFlowRuleresponseStream" ToRole="ToRole_ConditionalFlowRuleresponseStream"/>
+                <NavigationProperty Name="targetEndPoint" Relationship="-APIPortal.ConditionalFlowRuletargetEndPointAPITargetEndPoint" FromRole="FromRole_ConditionalFlowRuletargetEndPointAPITargetEndPoint" ToRole="ToRole_ConditionalFlowRuletargetEndPointAPITargetEndPoint"/>
+            </EntityType>
+            <Association Name="ConditionalFlowRuleapiResourceAPIResource">
+                <End Type="-APIPortal.ConditionalFlowRule" Multiplicity="1" Role="FromRole_ConditionalFlowRuleapiResourceAPIResource"/>
+                <End Type="-APIPortal.APIResource" Multiplicity="1" Role="ToRole_ConditionalFlowRuleapiResourceAPIResource"/>
+            </Association>
+            <Association Name="ConditionalFlowRuleproxyEndPointAPIProxyEndPoint">
+                <End Type="-APIPortal.ConditionalFlowRule" Multiplicity="1" Role="FromRole_ConditionalFlowRuleproxyEndPointAPIProxyEndPoint"/>
+                <End Type="-APIPortal.APIProxyEndPoint" Multiplicity="1" Role="ToRole_ConditionalFlowRuleproxyEndPointAPIProxyEndPoint"/>
+            </Association>
+            <Association Name="ConditionalFlowRulerequestStream">
+                <End Type="-APIPortal.ConditionalFlowRule" Multiplicity="1" Role="FromRole_ConditionalFlowRulerequestStream"/>
+                <End Type="-APIPortal.Stream" Multiplicity="1" Role="ToRole_ConditionalFlowRulerequestStream"/>
+                <ReferentialConstraint>
+                    <Principal Role="ToRole_ConditionalFlowRulerequestStream">
+                        <PropertyRef Name="id"/>
+                    </Principal>
+                    <Dependent Role="FromRole_ConditionalFlowRulerequestStream">
+                        <PropertyRef Name="FK_REQUEST_ID"/>
+                    </Dependent>
+                </ReferentialConstraint>
+            </Association>
+            <Association Name="ConditionalFlowRuleresponseStream">
+                <End Type="-APIPortal.ConditionalFlowRule" Multiplicity="1" Role="FromRole_ConditionalFlowRuleresponseStream"/>
+                <End Type="-APIPortal.Stream" Multiplicity="1" Role="ToRole_ConditionalFlowRuleresponseStream"/>
+                <ReferentialConstraint>
+                    <Principal Role="ToRole_ConditionalFlowRuleresponseStream">
+                        <PropertyRef Name="id"/>
+                    </Principal>
+                    <Dependent Role="FromRole_ConditionalFlowRuleresponseStream">
+                        <PropertyRef Name="FK_RESPONSE_ID"/>
+                    </Dependent>
+                </ReferentialConstraint>
+            </Association>
+            <Association Name="ConditionalFlowRuletargetEndPointAPITargetEndPoint">
+                <End Type="-APIPortal.ConditionalFlowRule" Multiplicity="1" Role="FromRole_ConditionalFlowRuletargetEndPointAPITargetEndPoint"/>
+                <End Type="-APIPortal.APITargetEndPoint" Multiplicity="1" Role="ToRole_ConditionalFlowRuletargetEndPointAPITargetEndPoint"/>
+            </Association>
+            <EntityType Name="DefaultFaultRule">
+                <Key>
+                    <PropertyRef Name="id"/>
+                </Key>
+                <Property Name="id" Type="Edm.String" sap:creatable="true" sap:updatable="true" sap:deletable="true" MaxLength="36" sap:label="id"/>
+                <Property Name="FK_PROXYENDPOINT_ID" Type="Edm.String" sap:creatable="true" sap:updatable="true" sap:deletable="true" MaxLength="36" sap:label="FK_PROXYENDPOINT_ID"/>
+                <Property Name="FK_TARGETENDPOINT_ID" Type="Edm.String" sap:creatable="true" sap:updatable="true" sap:deletable="true" MaxLength="36" sap:label="FK_TARGETENDPOINT_ID"/>
+                <Property Name="alwaysEnforce" Type="Edm.Boolean" sap:creatable="true" sap:updatable="true" sap:deletable="true" sap:label="alwaysEnforce"/>
+                <Property Name="name" Type="Edm.String" sap:creatable="true" sap:updatable="true" sap:deletable="true" MaxLength="255" sap:label="name"/>
+                <NavigationProperty Name="proxyEndPoint" Relationship="-APIPortal.DefaultFaultRuleproxyEndPointAPIProxyEndPoint" FromRole="FromRole_DefaultFaultRuleproxyEndPointAPIProxyEndPoint" ToRole="ToRole_DefaultFaultRuleproxyEndPointAPIProxyEndPoint"/>
+                <NavigationProperty Name="steps" Relationship="-APIPortal.DefaultFaultRulestepsStep" FromRole="FromRole_DefaultFaultRulestepsStep" ToRole="ToRole_DefaultFaultRulestepsStep"/>
+                <NavigationProperty Name="targetEndPoint" Relationship="-APIPortal.DefaultFaultRuletargetEndPointAPITargetEndPoint" FromRole="FromRole_DefaultFaultRuletargetEndPointAPITargetEndPoint" ToRole="ToRole_DefaultFaultRuletargetEndPointAPITargetEndPoint"/>
+            </EntityType>
+            <Association Name="DefaultFaultRuleproxyEndPointAPIProxyEndPoint">
+                <End Type="-APIPortal.DefaultFaultRule" Multiplicity="1" Role="FromRole_DefaultFaultRuleproxyEndPointAPIProxyEndPoint"/>
+                <End Type="-APIPortal.APIProxyEndPoint" Multiplicity="1" Role="ToRole_DefaultFaultRuleproxyEndPointAPIProxyEndPoint"/>
+                <ReferentialConstraint>
+                    <Principal Role="ToRole_DefaultFaultRuleproxyEndPointAPIProxyEndPoint">
+                        <PropertyRef Name="id"/>
+                    </Principal>
+                    <Dependent Role="FromRole_DefaultFaultRuleproxyEndPointAPIProxyEndPoint">
+                        <PropertyRef Name="FK_PROXYENDPOINT_ID"/>
+                    </Dependent>
+                </ReferentialConstraint>
+            </Association>
+            <Association Name="DefaultFaultRulestepsStep">
+                <End Type="-APIPortal.DefaultFaultRule" Multiplicity="1" Role="FromRole_DefaultFaultRulestepsStep"/>
+                <End Type="-APIPortal.Step" Multiplicity="*" Role="ToRole_DefaultFaultRulestepsStep"/>
+                <ReferentialConstraint>
+                    <Principal Role="FromRole_DefaultFaultRulestepsStep">
+                        <PropertyRef Name="id"/>
+                    </Principal>
+                    <Dependent Role="ToRole_DefaultFaultRulestepsStep">
+                        <PropertyRef Name="FK_DEFAULTFAULTRULE_ID"/>
+                    </Dependent>
+                </ReferentialConstraint>
+            </Association>
+            <Association Name="DefaultFaultRuletargetEndPointAPITargetEndPoint">
+                <End Type="-APIPortal.DefaultFaultRule" Multiplicity="1" Role="FromRole_DefaultFaultRuletargetEndPointAPITargetEndPoint"/>
+                <End Type="-APIPortal.APITargetEndPoint" Multiplicity="1" Role="ToRole_DefaultFaultRuletargetEndPointAPITargetEndPoint"/>
+                <ReferentialConstraint>
+                    <Principal Role="ToRole_DefaultFaultRuletargetEndPointAPITargetEndPoint">
+                        <PropertyRef Name="id"/>
+                    </Principal>
+                    <Dependent Role="FromRole_DefaultFaultRuletargetEndPointAPITargetEndPoint">
+                        <PropertyRef Name="FK_TARGETENDPOINT_ID"/>
+                    </Dependent>
+                </ReferentialConstraint>
+            </Association>
+            <EntityType Name="APIResource">
+                <Key>
+                    <PropertyRef Name="id"/>
+                </Key>
+                <Property Name="id" Type="Edm.String" sap:creatable="true" sap:updatable="true" sap:deletable="true" MaxLength="36" sap:label="id"/>
+                <Property Name="FK_PROXYENDPOINT_ID" Type="Edm.String" sap:creatable="true" sap:updatable="true" sap:deletable="true" MaxLength="36" sap:label="FK_PROXYENDPOINT_ID"/>
+                <Property Name="canShowDelete" Type="Edm.Boolean" sap:creatable="true" sap:updatable="true" sap:deletable="true" sap:label="canShowDelete"/>
+                <Property Name="canShowGet" Type="Edm.Boolean" sap:creatable="true" sap:updatable="true" sap:deletable="true" sap:label="canShowGet"/>
+                <Property Name="canShowHead" Type="Edm.Boolean" sap:creatable="true" sap:updatable="true" sap:deletable="true" sap:label="canShowHead"/>
+                <Property Name="canShowOption" Type="Edm.Boolean" sap:creatable="true" sap:updatable="true" sap:deletable="true" sap:label="canShowOption"/>
+                <Property Name="canShowPatch" Type="Edm.Boolean" sap:creatable="true" sap:updatable="true" sap:deletable="true" sap:label="canShowPatch"/>
+                <Property Name="canShowPost" Type="Edm.Boolean" sap:creatable="true" sap:updatable="true" sap:deletable="true" sap:label="canShowPost"/>
+                <Property Name="canShowPut" Type="Edm.Boolean" sap:creatable="true" sap:updatable="true" sap:deletable="true" sap:label="canShowPut"/>
+                <Property Name="description" Type="Edm.String" sap:creatable="true" sap:updatable="true" sap:deletable="true" MaxLength="16000" sap:label="description"/>
+                <Property Name="isDeleteChecked" Type="Edm.Boolean" sap:creatable="true" sap:updatable="true" sap:deletable="true" sap:label="isDeleteChecked"/>
+                <Property Name="isGetChecked" Type="Edm.Boolean" sap:creatable="true" sap:updatable="true" sap:deletable="true" sap:label="isGetChecked"/>
+                <Property Name="isHeadChecked" Type="Edm.Boolean" sap:creatable="true" sap:updatable="true" sap:deletable="true" sap:label="isHeadChecked"/>
+                <Property Name="isOptionChecked" Type="Edm.Boolean" sap:creatable="true" sap:updatable="true" sap:deletable="true" sap:label="isOptionChecked"/>
+                <Property Name="isPatchChecked" Type="Edm.Boolean" sap:creatable="true" sap:updatable="true" sap:deletable="true" sap:label="isPatchChecked"/>
+                <Property Name="isPostChecked" Type="Edm.Boolean" sap:creatable="true" sap:updatable="true" sap:deletable="true" sap:label="isPostChecked"/>
+                <Property Name="isPutChecked" Type="Edm.Boolean" sap:creatable="true" sap:updatable="true" sap:deletable="true" sap:label="isPutChecked"/>
+                <Property Name="name" Type="Edm.String" sap:creatable="true" sap:updatable="true" sap:deletable="true" MaxLength="1024" sap:label="name"/>
+                <Property Name="proxyEndPointName" Type="Edm.String" sap:creatable="true" sap:updatable="true" sap:deletable="true" sap:label="proxyEndPointName"/>
+                <Property Name="resource_path" Type="Edm.String" sap:creatable="true" sap:updatable="true" sap:deletable="true" sap:label="resource_path"/>
+                <Property Name="title" Type="Edm.String" sap:creatable="true" sap:updatable="true" sap:deletable="true" MaxLength="255" sap:label="title"/>
+                <NavigationProperty Name="apiProxyEndPoint" Relationship="-APIPortal.APIResourceapiProxyEndPointAPIProxyEndPoint" FromRole="FromRole_APIResourceapiProxyEndPointAPIProxyEndPoint" ToRole="ToRole_APIResourceapiProxyEndPointAPIProxyEndPoint"/>
+                <NavigationProperty Name="documentations" Relationship="-APIPortal.APIResourcedocumentationsDocumentation" FromRole="FromRole_APIResourcedocumentationsDocumentation" ToRole="ToRole_APIResourcedocumentationsDocumentation"/>
+                <NavigationProperty Name="resources" Relationship="-APIPortal.APIResourceresourcesResource" FromRole="FromRole_APIResourceresourcesResource" ToRole="ToRole_APIResourceresourcesResource"/>
+            </EntityType>
+            <Association Name="APIResourceapiProxyEndPointAPIProxyEndPoint">
+                <End Type="-APIPortal.APIResource" Multiplicity="1" Role="FromRole_APIResourceapiProxyEndPointAPIProxyEndPoint"/>
+                <End Type="-APIPortal.APIProxyEndPoint" Multiplicity="1" Role="ToRole_APIResourceapiProxyEndPointAPIProxyEndPoint"/>
+                <ReferentialConstraint>
+                    <Principal Role="ToRole_APIResourceapiProxyEndPointAPIProxyEndPoint">
+                        <PropertyRef Name="id"/>
+                    </Principal>
+                    <Dependent Role="FromRole_APIResourceapiProxyEndPointAPIProxyEndPoint">
+                        <PropertyRef Name="FK_PROXYENDPOINT_ID"/>
+                    </Dependent>
+                </ReferentialConstraint>
+            </Association>
+            <Association Name="APIResourcedocumentationsDocumentation">
+                <End Type="-APIPortal.APIResource" Multiplicity="1" Role="FromRole_APIResourcedocumentationsDocumentation"/>
+                <End Type="-APIPortal.Documentation" Multiplicity="*" Role="ToRole_APIResourcedocumentationsDocumentation"/>
+                <ReferentialConstraint>
+                    <Principal Role="FromRole_APIResourcedocumentationsDocumentation">
+                        <PropertyRef Name="id"/>
+                    </Principal>
+                    <Dependent Role="ToRole_APIResourcedocumentationsDocumentation">
+                        <PropertyRef Name="FK_APIRESOURCE_ID"/>
+                    </Dependent>
+                </ReferentialConstraint>
+            </Association>
+            <Association Name="APIResourceresourcesResource">
+                <End Type="-APIPortal.APIResource" Multiplicity="1" Role="FromRole_APIResourceresourcesResource"/>
+                <End Type="-APIPortal.Resource" Multiplicity="*" Role="ToRole_APIResourceresourcesResource"/>
+            </Association>
+            <EntityType Name="APITargetEndPoint">
+                <Key>
+                    <PropertyRef Name="id"/>
+                </Key>
+                <Property Name="id" Type="Edm.String" sap:creatable="true" sap:updatable="true" sap:deletable="true" MaxLength="36" sap:label="id"/>
+                <Property Name="FK_API_NAME" Type="Edm.String" sap:creatable="true" sap:updatable="true" sap:deletable="true" MaxLength="255" sap:label="FK_API_NAME"/>
+                <Property Name="FK_DEFAULTFAULTRULE_ID" Type="Edm.String" sap:creatable="true" sap:updatable="true" sap:deletable="true" MaxLength="36" sap:label="FK_DEFAULTFAULTRULE_ID"/>
+                <Property Name="FK_POSTFLOW_ID" Type="Edm.String" sap:creatable="true" sap:updatable="true" sap:deletable="true" MaxLength="36" sap:label="FK_POSTFLOW_ID"/>
+                <Property Name="FK_PREFLOW_ID" Type="Edm.String" sap:creatable="true" sap:updatable="true" sap:deletable="true" MaxLength="36" sap:label="FK_PREFLOW_ID"/>
+                <Property Name="FK_TARGET_API_PROXY" Type="Edm.String" sap:creatable="true" sap:updatable="true" sap:deletable="true" MaxLength="255" sap:label="FK_TARGET_API_PROXY"/>
+                <Property Name="isDefault" Type="Edm.Boolean" sap:creatable="true" sap:updatable="true" sap:deletable="true" sap:label="isDefault"/>
+                <Property Name="name" Type="Edm.String" sap:creatable="true" sap:updatable="true" sap:deletable="true" MaxLength="255" sap:label="name"/>
+                <Property Name="provider_id" Type="Edm.String" sap:creatable="true" sap:updatable="true" sap:deletable="true" MaxLength="200" sap:label="provider_id"/>
+                <Property Name="relativePath" Type="Edm.String" sap:creatable="true" sap:updatable="true" sap:deletable="true" MaxLength="255" sap:label="relativePath"/>
+                <Property Name="targetAPIProxyName" Type="Edm.String" sap:creatable="true" sap:updatable="true" sap:deletable="true" MaxLength="255" sap:label="targetAPIProxyName"/>
+                <Property Name="url" Type="Edm.String" sap:creatable="true" sap:updatable="true" sap:deletable="true" MaxLength="2083" sap:label="url"/>
+                <NavigationProperty Name="apiProxy" Relationship="-APIPortal.APITargetEndPointapiProxyAPIProxy" FromRole="FromRole_APITargetEndPointapiProxyAPIProxy" ToRole="ToRole_APITargetEndPointapiProxyAPIProxy"/>
+                <NavigationProperty Name="conditionalFlows" Relationship="-APIPortal.APITargetEndPointconditionalFlowsConditionalFlowRule" FromRole="FromRole_APITargetEndPointconditionalFlowsConditionalFlowRule" ToRole="ToRole_APITargetEndPointconditionalFlowsConditionalFlowRule"/>
+                <NavigationProperty Name="defaultFaultRule" Relationship="-APIPortal.APITargetEndPointdefaultFaultRuleDefaultFaultRule" FromRole="FromRole_APITargetEndPointdefaultFaultRuleDefaultFaultRule" ToRole="ToRole_APITargetEndPointdefaultFaultRuleDefaultFaultRule"/>
+                <NavigationProperty Name="faultRules" Relationship="-APIPortal.APITargetEndPointfaultRulesFaultRule" FromRole="FromRole_APITargetEndPointfaultRulesFaultRule" ToRole="ToRole_APITargetEndPointfaultRulesFaultRule"/>
+                <NavigationProperty Name="postFlow" Relationship="-APIPortal.APITargetEndPointpostFlowFlowRule" FromRole="FromRole_APITargetEndPointpostFlowFlowRule" ToRole="ToRole_APITargetEndPointpostFlowFlowRule"/>
+                <NavigationProperty Name="preFlow" Relationship="-APIPortal.APITargetEndPointpreFlowFlowRule" FromRole="FromRole_APITargetEndPointpreFlowFlowRule" ToRole="ToRole_APITargetEndPointpreFlowFlowRule"/>
+                <NavigationProperty Name="properties" Relationship="-APIPortal.APITargetEndPointpropertiesEndPointProperty" FromRole="FromRole_APITargetEndPointpropertiesEndPointProperty" ToRole="ToRole_APITargetEndPointpropertiesEndPointProperty"/>
+                <NavigationProperty Name="targetAPIProxy" Relationship="-APIPortal.APITargetEndPointtargetAPIProxyAPIProxy" FromRole="FromRole_APITargetEndPointtargetAPIProxyAPIProxy" ToRole="ToRole_APITargetEndPointtargetAPIProxyAPIProxy"/>
+            </EntityType>
+            <Association Name="APITargetEndPointapiProxyAPIProxy">
+                <End Type="-APIPortal.APITargetEndPoint" Multiplicity="1" Role="FromRole_APITargetEndPointapiProxyAPIProxy"/>
+                <End Type="-APIPortal.APIProxy" Multiplicity="1" Role="ToRole_APITargetEndPointapiProxyAPIProxy"/>
+                <ReferentialConstraint>
+                    <Principal Role="ToRole_APITargetEndPointapiProxyAPIProxy">
+                        <PropertyRef Name="name"/>
+                    </Principal>
+                    <Dependent Role="FromRole_APITargetEndPointapiProxyAPIProxy">
+                        <PropertyRef Name="FK_API_NAME"/>
+                    </Dependent>
+                </ReferentialConstraint>
+            </Association>
+            <Association Name="APITargetEndPointconditionalFlowsConditionalFlowRule">
+                <End Type="-APIPortal.APITargetEndPoint" Multiplicity="1" Role="FromRole_APITargetEndPointconditionalFlowsConditionalFlowRule"/>
+                <End Type="-APIPortal.ConditionalFlowRule" Multiplicity="*" Role="ToRole_APITargetEndPointconditionalFlowsConditionalFlowRule"/>
+            </Association>
+            <Association Name="APITargetEndPointdefaultFaultRuleDefaultFaultRule">
+                <End Type="-APIPortal.APITargetEndPoint" Multiplicity="1" Role="FromRole_APITargetEndPointdefaultFaultRuleDefaultFaultRule"/>
+                <End Type="-APIPortal.DefaultFaultRule" Multiplicity="1" Role="ToRole_APITargetEndPointdefaultFaultRuleDefaultFaultRule"/>
+                <ReferentialConstraint>
+                    <Principal Role="ToRole_APITargetEndPointdefaultFaultRuleDefaultFaultRule">
+                        <PropertyRef Name="id"/>
+                    </Principal>
+                    <Dependent Role="FromRole_APITargetEndPointdefaultFaultRuleDefaultFaultRule">
+                        <PropertyRef Name="FK_DEFAULTFAULTRULE_ID"/>
+                    </Dependent>
+                </ReferentialConstraint>
+            </Association>
+            <Association Name="APITargetEndPointfaultRulesFaultRule">
+                <End Type="-APIPortal.APITargetEndPoint" Multiplicity="1" Role="FromRole_APITargetEndPointfaultRulesFaultRule"/>
+                <End Type="-APIPortal.FaultRule" Multiplicity="*" Role="ToRole_APITargetEndPointfaultRulesFaultRule"/>
+                <ReferentialConstraint>
+                    <Principal Role="FromRole_APITargetEndPointfaultRulesFaultRule">
+                        <PropertyRef Name="id"/>
+                    </Principal>
+                    <Dependent Role="ToRole_APITargetEndPointfaultRulesFaultRule">
+                        <PropertyRef Name="FK_TARGETENDPOINT_ID"/>
+                    </Dependent>
+                </ReferentialConstraint>
+            </Association>
+            <Association Name="APITargetEndPointpostFlowFlowRule">
+                <End Type="-APIPortal.APITargetEndPoint" Multiplicity="1" Role="FromRole_APITargetEndPointpostFlowFlowRule"/>
+                <End Type="-APIPortal.FlowRule" Multiplicity="1" Role="ToRole_APITargetEndPointpostFlowFlowRule"/>
+                <ReferentialConstraint>
+                    <Principal Role="ToRole_APITargetEndPointpostFlowFlowRule">
+                        <PropertyRef Name="id"/>
+                    </Principal>
+                    <Dependent Role="FromRole_APITargetEndPointpostFlowFlowRule">
+                        <PropertyRef Name="FK_POSTFLOW_ID"/>
+                    </Dependent>
+                </ReferentialConstraint>
+            </Association>
+            <Association Name="APITargetEndPointpreFlowFlowRule">
+                <End Type="-APIPortal.APITargetEndPoint" Multiplicity="1" Role="FromRole_APITargetEndPointpreFlowFlowRule"/>
+                <End Type="-APIPortal.FlowRule" Multiplicity="1" Role="ToRole_APITargetEndPointpreFlowFlowRule"/>
+                <ReferentialConstraint>
+                    <Principal Role="ToRole_APITargetEndPointpreFlowFlowRule">
+                        <PropertyRef Name="id"/>
+                    </Principal>
+                    <Dependent Role="FromRole_APITargetEndPointpreFlowFlowRule">
+                        <PropertyRef Name="FK_PREFLOW_ID"/>
+                    </Dependent>
+                </ReferentialConstraint>
+            </Association>
+            <Association Name="APITargetEndPointpropertiesEndPointProperty">
+                <End Type="-APIPortal.APITargetEndPoint" Multiplicity="1" Role="FromRole_APITargetEndPointpropertiesEndPointProperty"/>
+                <End Type="-APIPortal.EndPointProperty" Multiplicity="*" Role="ToRole_APITargetEndPointpropertiesEndPointProperty"/>
+                <ReferentialConstraint>
+                    <Principal Role="FromRole_APITargetEndPointpropertiesEndPointProperty">
+                        <PropertyRef Name="id"/>
+                    </Principal>
+                    <Dependent Role="ToRole_APITargetEndPointpropertiesEndPointProperty">
+                        <PropertyRef Name="FK_TARGETENDPOINT_ID"/>
+                    </Dependent>
+                </ReferentialConstraint>
+            </Association>
+            <Association Name="APITargetEndPointtargetAPIProxyAPIProxy">
+                <End Type="-APIPortal.APITargetEndPoint" Multiplicity="1" Role="FromRole_APITargetEndPointtargetAPIProxyAPIProxy"/>
+                <End Type="-APIPortal.APIProxy" Multiplicity="1" Role="ToRole_APITargetEndPointtargetAPIProxyAPIProxy"/>
+                <ReferentialConstraint>
+                    <Principal Role="ToRole_APITargetEndPointtargetAPIProxyAPIProxy">
+                        <PropertyRef Name="name"/>
+                    </Principal>
+                    <Dependent Role="FromRole_APITargetEndPointtargetAPIProxyAPIProxy">
+                        <PropertyRef Name="FK_TARGET_API_PROXY"/>
+                    </Dependent>
+                </ReferentialConstraint>
+            </Association>
+            <EntityType Name="FaultRule">
+                <Key>
+                    <PropertyRef Name="id"/>
+                </Key>
+                <Property Name="id" Type="Edm.String" sap:creatable="true" sap:updatable="true" sap:deletable="true" MaxLength="36" sap:label="id"/>
+                <Property Name="FK_PROXYENDPOINT_ID" Type="Edm.String" sap:creatable="true" sap:updatable="true" sap:deletable="true" MaxLength="36" sap:label="FK_PROXYENDPOINT_ID"/>
+                <Property Name="FK_ROUTERULE_ID" Type="Edm.String" sap:creatable="true" sap:updatable="true" sap:deletable="true" MaxLength="36" sap:label="FK_ROUTERULE_ID"/>
+                <Property Name="FK_TARGETENDPOINT_ID" Type="Edm.String" sap:creatable="true" sap:updatable="true" sap:deletable="true" MaxLength="36" sap:label="FK_TARGETENDPOINT_ID"/>
+                <Property Name="condition" Type="Edm.String" sap:creatable="true" sap:updatable="true" sap:deletable="true" sap:label="condition"/>
+                <Property Name="name" Type="Edm.String" sap:creatable="true" sap:updatable="true" sap:deletable="true" MaxLength="255" sap:label="name"/>
+                <NavigationProperty Name="proxyEndPoint" Relationship="-APIPortal.FaultRuleproxyEndPointAPIProxyEndPoint" FromRole="FromRole_FaultRuleproxyEndPointAPIProxyEndPoint" ToRole="ToRole_FaultRuleproxyEndPointAPIProxyEndPoint"/>
+                <NavigationProperty Name="routeRule" Relationship="-APIPortal.FaultRulerouteRuleRouteRule" FromRole="FromRole_FaultRulerouteRuleRouteRule" ToRole="ToRole_FaultRulerouteRuleRouteRule"/>
+                <NavigationProperty Name="steps" Relationship="-APIPortal.FaultRulestepsStep" FromRole="FromRole_FaultRulestepsStep" ToRole="ToRole_FaultRulestepsStep"/>
+                <NavigationProperty Name="targetEndPoint" Relationship="-APIPortal.FaultRuletargetEndPointAPITargetEndPoint" FromRole="FromRole_FaultRuletargetEndPointAPITargetEndPoint" ToRole="ToRole_FaultRuletargetEndPointAPITargetEndPoint"/>
+            </EntityType>
+            <Association Name="FaultRuleproxyEndPointAPIProxyEndPoint">
+                <End Type="-APIPortal.FaultRule" Multiplicity="1" Role="FromRole_FaultRuleproxyEndPointAPIProxyEndPoint"/>
+                <End Type="-APIPortal.APIProxyEndPoint" Multiplicity="1" Role="ToRole_FaultRuleproxyEndPointAPIProxyEndPoint"/>
+                <ReferentialConstraint>
+                    <Principal Role="ToRole_FaultRuleproxyEndPointAPIProxyEndPoint">
+                        <PropertyRef Name="id"/>
+                    </Principal>
+                    <Dependent Role="FromRole_FaultRuleproxyEndPointAPIProxyEndPoint">
+                        <PropertyRef Name="FK_PROXYENDPOINT_ID"/>
+                    </Dependent>
+                </ReferentialConstraint>
+            </Association>
+            <Association Name="FaultRulerouteRuleRouteRule">
+                <End Type="-APIPortal.FaultRule" Multiplicity="1" Role="FromRole_FaultRulerouteRuleRouteRule"/>
+                <End Type="-APIPortal.RouteRule" Multiplicity="1" Role="ToRole_FaultRulerouteRuleRouteRule"/>
+                <ReferentialConstraint>
+                    <Principal Role="ToRole_FaultRulerouteRuleRouteRule">
+                        <PropertyRef Name="id"/>
+                    </Principal>
+                    <Dependent Role="FromRole_FaultRulerouteRuleRouteRule">
+                        <PropertyRef Name="FK_ROUTERULE_ID"/>
+                    </Dependent>
+                </ReferentialConstraint>
+            </Association>
+            <Association Name="FaultRulestepsStep">
+                <End Type="-APIPortal.FaultRule" Multiplicity="1" Role="FromRole_FaultRulestepsStep"/>
+                <End Type="-APIPortal.Step" Multiplicity="*" Role="ToRole_FaultRulestepsStep"/>
+                <ReferentialConstraint>
+                    <Principal Role="FromRole_FaultRulestepsStep">
+                        <PropertyRef Name="id"/>
+                    </Principal>
+                    <Dependent Role="ToRole_FaultRulestepsStep">
+                        <PropertyRef Name="FK_FAULTRULE_ID"/>
+                    </Dependent>
+                </ReferentialConstraint>
+            </Association>
+            <Association Name="FaultRuletargetEndPointAPITargetEndPoint">
+                <End Type="-APIPortal.FaultRule" Multiplicity="1" Role="FromRole_FaultRuletargetEndPointAPITargetEndPoint"/>
+                <End Type="-APIPortal.APITargetEndPoint" Multiplicity="1" Role="ToRole_FaultRuletargetEndPointAPITargetEndPoint"/>
+                <ReferentialConstraint>
+                    <Principal Role="ToRole_FaultRuletargetEndPointAPITargetEndPoint">
+                        <PropertyRef Name="id"/>
+                    </Principal>
+                    <Dependent Role="FromRole_FaultRuletargetEndPointAPITargetEndPoint">
+                        <PropertyRef Name="FK_TARGETENDPOINT_ID"/>
+                    </Dependent>
+                </ReferentialConstraint>
+            </Association>
+            <EntityType Name="APIProduct">
+                <Key>
+                    <PropertyRef Name="name"/>
+                </Key>
+                <Property Name="name" Type="Edm.String" sap:creatable="true" sap:updatable="true" sap:deletable="true" MaxLength="255" sap:label="name"/>
+                <Property Name="description" Type="Edm.String" sap:creatable="true" sap:updatable="true" sap:deletable="true" MaxLength="16000" sap:label="description"/>
+                <Property Name="isPublished" Type="Edm.Boolean" sap:creatable="true" sap:updatable="true" sap:deletable="true" sap:label="isPublished"/>
+                <Property Name="isRestricted" Type="Edm.Boolean" sap:creatable="true" sap:updatable="true" sap:deletable="true" sap:label="isRestricted"/>
+                <Property Name="published_at" Type="Edm.DateTime" sap:creatable="true" sap:updatable="true" sap:deletable="true" sap:display-format="Date" sap:label="published_at"/>
+                <Property Name="published_by" Type="Edm.String" sap:creatable="true" sap:updatable="true" sap:deletable="true" MaxLength="256" sap:label="published_by"/>
+                <Property Name="quotaCount" Type="Edm.Int32" sap:creatable="true" sap:updatable="true" sap:deletable="true" sap:label="quotaCount"/>
+                <Property Name="quotaInterval" Type="Edm.Int32" sap:creatable="true" sap:updatable="true" sap:deletable="true" sap:label="quotaInterval"/>
+                <Property Name="quotaTimeUnit" Type="Edm.String" sap:creatable="true" sap:updatable="true" sap:deletable="true" MaxLength="10" sap:label="quotaTimeUnit"/>
+                <Property Name="scope" Type="Edm.String" sap:creatable="true" sap:updatable="true" sap:deletable="true" MaxLength="255" sap:label="scope"/>
+                <Property Name="status_code" Type="Edm.String" sap:creatable="true" sap:updatable="true" sap:deletable="true" MaxLength="20" sap:label="status_code"/>
+                <Property Name="title" Type="Edm.String" sap:creatable="true" sap:updatable="true" sap:deletable="true" MaxLength="255" sap:label="title"/>
+                <Property Name="version" Type="Edm.String" sap:creatable="true" sap:updatable="true" sap:deletable="true" MaxLength="10" sap:label="version"/>
+                <NavigationProperty Name="apiProxies" Relationship="-APIPortal.APIProductapiProxiesAPIProxy" FromRole="FromRole_APIProductapiProxiesAPIProxy" ToRole="ToRole_APIProductapiProxiesAPIProxy"/>
+                <NavigationProperty Name="apiResources" Relationship="-APIPortal.APIProductapiResourcesAPIResource" FromRole="FromRole_APIProductapiResourcesAPIResource" ToRole="ToRole_APIProductapiResourcesAPIResource"/>
+                <NavigationProperty Name="applications" Relationship="-APIPortal.APIProductapplicationsApplication" FromRole="FromRole_APIProductapplicationsApplication" ToRole="ToRole_APIProductapplicationsApplication"/>
+                <NavigationProperty Name="ratePlans" Relationship="-APIPortal.APIProductratePlansRatePlan" FromRole="FromRole_APIProductratePlansRatePlan" ToRole="ToRole_APIProductratePlansRatePlan"/>
+                <NavigationProperty Name="resources" Relationship="-APIPortal.APIProductresourcesResource" FromRole="FromRole_APIProductresourcesResource" ToRole="ToRole_APIProductresourcesResource"/>
+            </EntityType>
+            <Association Name="APIProductapiProxiesAPIProxy">
+                <End Type="-APIPortal.APIProduct" Multiplicity="1" Role="FromRole_APIProductapiProxiesAPIProxy"/>
+                <End Type="-APIPortal.APIProxy" Multiplicity="*" Role="ToRole_APIProductapiProxiesAPIProxy"/>
+            </Association>
+            <Association Name="APIProductapiResourcesAPIResource">
+                <End Type="-APIPortal.APIProduct" Multiplicity="1" Role="FromRole_APIProductapiResourcesAPIResource"/>
+                <End Type="-APIPortal.APIResource" Multiplicity="*" Role="ToRole_APIProductapiResourcesAPIResource"/>
+            </Association>
+            <Association Name="APIProductapplicationsApplication">
+                <End Type="-APIPortal.APIProduct" Multiplicity="1" Role="FromRole_APIProductapplicationsApplication"/>
+                <End Type="-APIPortal.Application" Multiplicity="*" Role="ToRole_APIProductapplicationsApplication"/>
+            </Association>
+            <Association Name="APIProductratePlansRatePlan">
+                <End Type="-APIPortal.APIProduct" Multiplicity="1" Role="FromRole_APIProductratePlansRatePlan"/>
+                <End Type="-APIPortal.RatePlan" Multiplicity="*" Role="ToRole_APIProductratePlansRatePlan"/>
+            </Association>
+            <Association Name="APIProductresourcesResource">
+                <End Type="-APIPortal.APIProduct" Multiplicity="1" Role="FromRole_APIProductresourcesResource"/>
+                <End Type="-APIPortal.Resource" Multiplicity="*" Role="ToRole_APIProductresourcesResource"/>
+            </Association>
+            <EntityType Name="Documentation">
+                <Key>
+                    <PropertyRef Name="id"/>
+                    <PropertyRef Name="locale"/>
+                </Key>
+                <Property Name="id" Type="Edm.String" sap:creatable="true" sap:updatable="true" sap:deletable="true" MaxLength="36" sap:label="id"/>
+                <Property Name="locale" Type="Edm.String" sap:creatable="true" sap:updatable="true" sap:deletable="true" MaxLength="5" sap:label="locale"/>
+                <Property Name="FK_APIRESOURCE_ID" Type="Edm.String" sap:creatable="true" sap:updatable="true" sap:deletable="true" MaxLength="36" sap:label="FK_APIRESOURCE_ID"/>
+                <Property Name="apiResourceName" Type="Edm.String" sap:creatable="true" sap:updatable="true" sap:deletable="true" sap:label="apiResourceName"/>
+                <Property Name="content" Type="Edm.String" sap:creatable="true" sap:updatable="true" sap:deletable="true" sap:label="content"/>
+                <Property Name="mime_type" Type="Edm.String" sap:creatable="true" sap:updatable="true" sap:deletable="true" MaxLength="256" sap:label="mime_type"/>
+                <NavigationProperty Name="apiResource" Relationship="-APIPortal.DocumentationapiResourceAPIResource" FromRole="FromRole_DocumentationapiResourceAPIResource" ToRole="ToRole_DocumentationapiResourceAPIResource"/>
+            </EntityType>
+            <Association Name="DocumentationapiResourceAPIResource">
+                <End Type="-APIPortal.Documentation" Multiplicity="1" Role="FromRole_DocumentationapiResourceAPIResource"/>
+                <End Type="-APIPortal.APIResource" Multiplicity="1" Role="ToRole_DocumentationapiResourceAPIResource"/>
+                <ReferentialConstraint>
+                    <Principal Role="ToRole_DocumentationapiResourceAPIResource">
+                        <PropertyRef Name="id"/>
+                    </Principal>
+                    <Dependent Role="FromRole_DocumentationapiResourceAPIResource">
+                        <PropertyRef Name="FK_APIRESOURCE_ID"/>
+                    </Dependent>
+                </ReferentialConstraint>
+            </Association>
+            <EntityType Name="Certificate">
+                <Key>
+                    <PropertyRef Name="name"/>
+                    <PropertyRef Name="storeName"/>
+                </Key>
+                <Property Name="name" Type="Edm.String" sap:creatable="true" sap:updatable="true" sap:deletable="true" MaxLength="200" sap:label="name"/>
+                <Property Name="storeName" Type="Edm.String" sap:creatable="true" sap:updatable="true" sap:deletable="true" MaxLength="200" sap:label="storeName"/>
+                <Property Name="certName" Type="Edm.String" sap:creatable="true" sap:updatable="true" sap:deletable="true" MaxLength="256" sap:label="certName"/>
+                <Property Name="content" Type="Edm.Binary" sap:creatable="true" sap:updatable="true" sap:deletable="true" sap:label="content"/>
+                <Property Name="description" Type="Edm.String" sap:creatable="true" sap:updatable="true" sap:deletable="true" MaxLength="2048" sap:label="description"/>
+                <Property Name="expiryDate" Type="Edm.String" sap:creatable="true" sap:updatable="true" sap:deletable="true" MaxLength="256" sap:label="expiryDate"/>
+                <Property Name="isValid" Type="Edm.String" sap:creatable="true" sap:updatable="true" sap:deletable="true" MaxLength="256" sap:label="isValid"/>
+                <Property Name="issuerEmail" Type="Edm.String" sap:creatable="true" sap:updatable="true" sap:deletable="true" MaxLength="2048" sap:label="issuerEmail"/>
+                <Property Name="password" Type="Edm.String" sap:creatable="true" sap:updatable="true" sap:deletable="true" MaxLength="256" sap:label="password"/>
+                <Property Name="signAlgName" Type="Edm.String" sap:creatable="true" sap:updatable="true" sap:deletable="true" MaxLength="256" sap:label="signAlgName"/>
+                <Property Name="storeType" Type="Edm.String" sap:creatable="true" sap:updatable="true" sap:deletable="true" MaxLength="256" sap:label="storeType"/>
+                <Property Name="subjectEmail" Type="Edm.String" sap:creatable="true" sap:updatable="true" sap:deletable="true" MaxLength="2048" sap:label="subjectEmail"/>
+                <Property Name="validFrom" Type="Edm.String" sap:creatable="true" sap:updatable="true" sap:deletable="true" MaxLength="256" sap:label="validFrom"/>
+                <Property Name="version" Type="Edm.String" sap:creatable="true" sap:updatable="true" sap:deletable="true" MaxLength="256" sap:label="version"/>
+                <NavigationProperty Name="certificateStore" Relationship="-APIPortal.CertificatecertificateStoreCertificateStore" FromRole="FromRole_CertificatecertificateStoreCertificateStore" ToRole="ToRole_CertificatecertificateStoreCertificateStore"/>
+            </EntityType>
+            <Association Name="CertificatecertificateStoreCertificateStore">
+                <End Type="-APIPortal.Certificate" Multiplicity="1" Role="FromRole_CertificatecertificateStoreCertificateStore"/>
+                <End Type="-APIPortal.CertificateStore" Multiplicity="1" Role="ToRole_CertificatecertificateStoreCertificateStore"/>
+                <ReferentialConstraint>
+                    <Principal Role="ToRole_CertificatecertificateStoreCertificateStore">
+                        <PropertyRef Name="name"/>
+                    </Principal>
+                    <Dependent Role="FromRole_CertificatecertificateStoreCertificateStore">
+                        <PropertyRef Name="storeName"/>
+                    </Dependent>
+                </ReferentialConstraint>
+            </Association>
+            <EntityType Name="RatePlan">
+                <Key>
+                    <PropertyRef Name="id"/>
+                </Key>
+                <Property Name="id" Type="Edm.String" sap:creatable="true" sap:updatable="true" sap:deletable="true" sap:label="id"/>
+                <Property Name="currency" Type="Edm.String" sap:creatable="true" sap:updatable="true" sap:deletable="true" MaxLength="50" sap:label="currency"/>
+                <Property Name="description" Type="Edm.String" sap:creatable="true" sap:updatable="true" sap:deletable="true" MaxLength="16000" sap:label="description"/>
+                <Property Name="frequency" Type="Edm.String" sap:creatable="true" sap:updatable="true" sap:deletable="true" MaxLength="255" sap:label="frequency"/>
+                <Property Name="isActive" Type="Edm.Boolean" sap:creatable="true" sap:updatable="true" sap:deletable="true" sap:label="isActive"/>
+                <Property Name="isPublished" Type="Edm.Boolean" sap:creatable="true" sap:updatable="true" sap:deletable="true" sap:label="isPublished"/>
+                <Property Name="isSeasonal" Type="Edm.Boolean" sap:creatable="true" sap:updatable="true" sap:deletable="true" sap:label="isSeasonal"/>
+                <Property Name="name" Type="Edm.String" sap:creatable="true" sap:updatable="true" sap:deletable="true" MaxLength="255" sap:label="name"/>
+                <Property Name="rate" Type="Edm.String" sap:creatable="true" sap:updatable="true" sap:deletable="true" sap:label="rate"/>
+                <Property Name="type" Type="Edm.String" sap:creatable="true" sap:updatable="true" sap:deletable="true" MaxLength="255" sap:label="type"/>
+                <Property Name="validFrom" Type="Edm.DateTime" sap:creatable="true" sap:updatable="true" sap:deletable="true" sap:display-format="Date" sap:label="validFrom"/>
+                <Property Name="validTo" Type="Edm.DateTime" sap:creatable="true" sap:updatable="true" sap:deletable="true" sap:display-format="Date" sap:label="validTo"/>
+                <NavigationProperty Name="apiProducts" Relationship="-APIPortal.RatePlanapiProductsAPIProduct" FromRole="FromRole_RatePlanapiProductsAPIProduct" ToRole="ToRole_RatePlanapiProductsAPIProduct"/>
+                <NavigationProperty Name="resources" Relationship="-APIPortal.RatePlanresourcesResource" FromRole="FromRole_RatePlanresourcesResource" ToRole="ToRole_RatePlanresourcesResource"/>
+            </EntityType>
+            <Association Name="RatePlanapiProductsAPIProduct">
+                <End Type="-APIPortal.RatePlan" Multiplicity="1" Role="FromRole_RatePlanapiProductsAPIProduct"/>
+                <End Type="-APIPortal.APIProduct" Multiplicity="*" Role="ToRole_RatePlanapiProductsAPIProduct"/>
+            </Association>
+            <Association Name="RatePlanresourcesResource">
+                <End Type="-APIPortal.RatePlan" Multiplicity="1" Role="FromRole_RatePlanresourcesResource"/>
+                <End Type="-APIPortal.Resource" Multiplicity="*" Role="ToRole_RatePlanresourcesResource"/>
+            </Association>
+            <EntityType Name="PolicyTemplateContainer">
+                <Key>
+                    <PropertyRef Name="name"/>
+                </Key>
+                <Property Name="name" Type="Edm.String" sap:creatable="true" sap:updatable="true" sap:deletable="true" MaxLength="255" sap:label="name"/>
+                <Property Name="description" Type="Edm.String" sap:creatable="true" sap:updatable="true" sap:deletable="true" MaxLength="4096" sap:label="description"/>
+                <Property Name="proxyEndPointxml" Type="Edm.String" sap:creatable="true" sap:updatable="true" sap:deletable="true" sap:label="proxyEndPointxml"/>
+                <Property Name="targetEndPointxml" Type="Edm.String" sap:creatable="true" sap:updatable="true" sap:deletable="true" sap:label="targetEndPointxml"/>
+                <Property Name="title" Type="Edm.String" sap:creatable="true" sap:updatable="true" sap:deletable="true" MaxLength="255" sap:label="title"/>
+                <Property Name="version" Type="Edm.String" sap:creatable="true" sap:updatable="true" sap:deletable="true" MaxLength="10" sap:label="version"/>
+                <NavigationProperty Name="fileResources" Relationship="-APIPortal.PolicyTemplateContainerfileResourcesTemplateFileResource" FromRole="FromRole_PolicyTemplateContainerfileResourcesTemplateFileResource" ToRole="ToRole_PolicyTemplateContainerfileResourcesTemplateFileResource"/>
+                <NavigationProperty Name="policies" Relationship="-APIPortal.PolicyTemplateContainerpoliciesTemplatePolicy" FromRole="FromRole_PolicyTemplateContainerpoliciesTemplatePolicy" ToRole="ToRole_PolicyTemplateContainerpoliciesTemplatePolicy"/>
+            </EntityType>
+            <Association Name="PolicyTemplateContainerfileResourcesTemplateFileResource">
+                <End Type="-APIPortal.PolicyTemplateContainer" Multiplicity="1" Role="FromRole_PolicyTemplateContainerfileResourcesTemplateFileResource"/>
+                <End Type="-APIPortal.TemplateFileResource" Multiplicity="*" Role="ToRole_PolicyTemplateContainerfileResourcesTemplateFileResource"/>
+                <ReferentialConstraint>
+                    <Principal Role="FromRole_PolicyTemplateContainerfileResourcesTemplateFileResource">
+                        <PropertyRef Name="name"/>
+                    </Principal>
+                    <Dependent Role="ToRole_PolicyTemplateContainerfileResourcesTemplateFileResource">
+                        <PropertyRef Name="FK_TEMPLATE_NAME"/>
+                    </Dependent>
+                </ReferentialConstraint>
+            </Association>
+            <Association Name="PolicyTemplateContainerpoliciesTemplatePolicy">
+                <End Type="-APIPortal.PolicyTemplateContainer" Multiplicity="1" Role="FromRole_PolicyTemplateContainerpoliciesTemplatePolicy"/>
+                <End Type="-APIPortal.TemplatePolicy" Multiplicity="*" Role="ToRole_PolicyTemplateContainerpoliciesTemplatePolicy"/>
+                <ReferentialConstraint>
+                    <Principal Role="FromRole_PolicyTemplateContainerpoliciesTemplatePolicy">
+                        <PropertyRef Name="name"/>
+                    </Principal>
+                    <Dependent Role="ToRole_PolicyTemplateContainerpoliciesTemplatePolicy">
+                        <PropertyRef Name="FK_TEMPLATE_NAME"/>
+                    </Dependent>
+                </ReferentialConstraint>
+            </Association>
+            <EntityType Name="Bill">
+                <Key>
+                    <PropertyRef Name="entityId"/>
+                    <PropertyRef Name="entityType"/>
+                    <PropertyRef Name="fromDate"/>
+                    <PropertyRef Name="toDate"/>
+                </Key>
+                <Property Name="entityId" Type="Edm.String" sap:creatable="true" sap:updatable="true" sap:deletable="true" MaxLength="256" sap:label="entityId"/>
+                <Property Name="entityType" Type="Edm.String" sap:creatable="true" sap:updatable="true" sap:deletable="true" MaxLength="32" sap:label="entityType"/>
+                <Property Name="fromDate" Type="Edm.DateTime" sap:creatable="true" sap:updatable="true" sap:deletable="true" sap:display-format="Date" sap:label="fromDate"/>
+                <Property Name="toDate" Type="Edm.DateTime" sap:creatable="true" sap:updatable="true" sap:deletable="true" sap:display-format="Date" sap:label="toDate"/>
+                <Property Name="billDetails" Type="Edm.String" sap:creatable="true" sap:updatable="true" sap:deletable="true" sap:label="billDetails"/>
+                <Property Name="billGeneratedAt" Type="Edm.DateTime" sap:creatable="true" sap:updatable="true" sap:deletable="true" sap:display-format="Date" sap:label="billGeneratedAt"/>
+                <Property Name="billGeneratedBy" Type="Edm.String" sap:creatable="true" sap:updatable="true" sap:deletable="true" MaxLength="255" sap:label="billGeneratedBy"/>
+                <Property Name="billId" Type="Edm.String" sap:creatable="true" sap:updatable="true" sap:deletable="true" MaxLength="64" sap:label="billId"/>
+                <Property Name="currency" Type="Edm.String" sap:creatable="true" sap:updatable="true" sap:deletable="true" MaxLength="32" sap:label="currency"/>
+                <Property Name="description" Type="Edm.String" sap:creatable="true" sap:updatable="true" sap:deletable="true" MaxLength="2048" sap:label="description"/>
+                <Property Name="emailId" Type="Edm.String" sap:creatable="true" sap:updatable="true" sap:deletable="true" MaxLength="255" sap:label="emailId"/>
+                <Property Name="entityName" Type="Edm.String" sap:creatable="true" sap:updatable="true" sap:deletable="true" MaxLength="256" sap:label="entityName"/>
+                <Property Name="firstName" Type="Edm.String" sap:creatable="true" sap:updatable="true" sap:deletable="true" MaxLength="255" sap:label="firstName"/>
+                <Property Name="isoffboarded" Type="Edm.Boolean" sap:creatable="true" sap:updatable="true" sap:deletable="true" sap:label="isoffboarded"/>
+                <Property Name="lastName" Type="Edm.String" sap:creatable="true" sap:updatable="true" sap:deletable="true" MaxLength="255" sap:label="lastName"/>
+                <Property Name="offboardedDate" Type="Edm.DateTime" sap:creatable="true" sap:updatable="true" sap:deletable="true" sap:display-format="Date" sap:label="offboardedDate"/>
+                <Property Name="status" Type="Edm.String" sap:creatable="true" sap:updatable="true" sap:deletable="true" MaxLength="64" sap:label="status"/>
+                <Property Name="total" Type="Edm.Double" sap:creatable="true" sap:updatable="true" sap:deletable="true" sap:label="total"/>
+            </EntityType>
+            <EntityType Name="RouteRule">
+                <Key>
+                    <PropertyRef Name="id"/>
+                </Key>
+                <Property Name="id" Type="Edm.String" sap:creatable="true" sap:updatable="true" sap:deletable="true" MaxLength="36" sap:label="id"/>
+                <Property Name="FK_PROXYENDPOINT_ID" Type="Edm.String" sap:creatable="true" sap:updatable="true" sap:deletable="true" MaxLength="36" sap:label="FK_PROXYENDPOINT_ID"/>
+                <Property Name="conditions" Type="Edm.String" sap:creatable="true" sap:updatable="true" sap:deletable="true" sap:label="conditions"/>
+                <Property Name="name" Type="Edm.String" sap:creatable="true" sap:updatable="true" sap:deletable="true" MaxLength="255" sap:label="name"/>
+                <Property Name="sequence" Type="Edm.Int32" sap:creatable="true" sap:updatable="true" sap:deletable="true" sap:label="sequence"/>
+                <Property Name="targetEndPointName" Type="Edm.String" sap:creatable="true" sap:updatable="true" sap:deletable="true" MaxLength="255" sap:label="targetEndPointName"/>
+                <Property Name="url" Type="Edm.String" sap:creatable="true" sap:updatable="true" sap:deletable="true" sap:label="url"/>
+                <NavigationProperty Name="faultRules" Relationship="-APIPortal.RouteRulefaultRulesFaultRule" FromRole="FromRole_RouteRulefaultRulesFaultRule" ToRole="ToRole_RouteRulefaultRulesFaultRule"/>
+                <NavigationProperty Name="proxyEndPoint" Relationship="-APIPortal.RouteRuleproxyEndPointAPIProxyEndPoint" FromRole="FromRole_RouteRuleproxyEndPointAPIProxyEndPoint" ToRole="ToRole_RouteRuleproxyEndPointAPIProxyEndPoint"/>
+            </EntityType>
+            <Association Name="RouteRulefaultRulesFaultRule">
+                <End Type="-APIPortal.RouteRule" Multiplicity="1" Role="FromRole_RouteRulefaultRulesFaultRule"/>
+                <End Type="-APIPortal.FaultRule" Multiplicity="*" Role="ToRole_RouteRulefaultRulesFaultRule"/>
+                <ReferentialConstraint>
+                    <Principal Role="FromRole_RouteRulefaultRulesFaultRule">
+                        <PropertyRef Name="id"/>
+                    </Principal>
+                    <Dependent Role="ToRole_RouteRulefaultRulesFaultRule">
+                        <PropertyRef Name="FK_ROUTERULE_ID"/>
+                    </Dependent>
+                </ReferentialConstraint>
+            </Association>
+            <Association Name="RouteRuleproxyEndPointAPIProxyEndPoint">
+                <End Type="-APIPortal.RouteRule" Multiplicity="1" Role="FromRole_RouteRuleproxyEndPointAPIProxyEndPoint"/>
+                <End Type="-APIPortal.APIProxyEndPoint" Multiplicity="1" Role="ToRole_RouteRuleproxyEndPointAPIProxyEndPoint"/>
+                <ReferentialConstraint>
+                    <Principal Role="ToRole_RouteRuleproxyEndPointAPIProxyEndPoint">
+                        <PropertyRef Name="id"/>
+                    </Principal>
+                    <Dependent Role="FromRole_RouteRuleproxyEndPointAPIProxyEndPoint">
+                        <PropertyRef Name="FK_PROXYENDPOINT_ID"/>
+                    </Dependent>
+                </ReferentialConstraint>
+            </Association>
+            <EntityType Name="KeyMapEntryValue">
+                <Key>
+                    <PropertyRef Name="map_name"/>
+                    <PropertyRef Name="name"/>
+                </Key>
+                <Property Name="map_name" Type="Edm.String" sap:creatable="true" sap:updatable="true" sap:deletable="true" MaxLength="255" sap:label="map_name"/>
+                <Property Name="name" Type="Edm.String" sap:creatable="true" sap:updatable="true" sap:deletable="true" MaxLength="255" sap:label="name"/>
+                <Property Name="value" Type="Edm.String" sap:creatable="true" sap:updatable="true" sap:deletable="true" MaxLength="4096" sap:label="value"/>
+                <NavigationProperty Name="keyMapEntry" Relationship="-APIPortal.KeyMapEntryValuekeyMapEntryKeyMapEntry" FromRole="FromRole_KeyMapEntryValuekeyMapEntryKeyMapEntry" ToRole="ToRole_KeyMapEntryValuekeyMapEntryKeyMapEntry"/>
+            </EntityType>
+            <Association Name="KeyMapEntryValuekeyMapEntryKeyMapEntry">
+                <End Type="-APIPortal.KeyMapEntryValue" Multiplicity="1" Role="FromRole_KeyMapEntryValuekeyMapEntryKeyMapEntry"/>
+                <End Type="-APIPortal.KeyMapEntry" Multiplicity="1" Role="ToRole_KeyMapEntryValuekeyMapEntryKeyMapEntry"/>
+                <ReferentialConstraint>
+                    <Principal Role="ToRole_KeyMapEntryValuekeyMapEntryKeyMapEntry">
+                        <PropertyRef Name="name"/>
+                    </Principal>
+                    <Dependent Role="FromRole_KeyMapEntryValuekeyMapEntryKeyMapEntry">
+                        <PropertyRef Name="map_name"/>
+                    </Dependent>
+                </ReferentialConstraint>
+            </Association>
+            <EntityType Name="FileResource">
+                <Key>
+                    <PropertyRef Name="id"/>
+                </Key>
+                <Property Name="id" Type="Edm.String" sap:creatable="true" sap:updatable="true" sap:deletable="true" MaxLength="36" sap:label="id"/>
+                <Property Name="content" Type="Edm.String" sap:creatable="true" sap:updatable="true" sap:deletable="true" sap:label="content"/>
+                <Property Name="name" Type="Edm.String" sap:creatable="true" sap:updatable="true" sap:deletable="true" MaxLength="255" sap:label="name"/>
+                <Property Name="scope" Type="Edm.String" sap:creatable="true" sap:updatable="true" sap:deletable="true" MaxLength="20" sap:label="scope"/>
+                <Property Name="type" Type="Edm.String" sap:creatable="true" sap:updatable="true" sap:deletable="true" MaxLength="10" sap:label="type"/>
+                <NavigationProperty Name="apiProxies" Relationship="-APIPortal.FileResourceapiProxiesAPIProxy" FromRole="FromRole_FileResourceapiProxiesAPIProxy" ToRole="ToRole_FileResourceapiProxiesAPIProxy"/>
+            </EntityType>
+            <Association Name="FileResourceapiProxiesAPIProxy">
+                <End Type="-APIPortal.FileResource" Multiplicity="1" Role="FromRole_FileResourceapiProxiesAPIProxy"/>
+                <End Type="-APIPortal.APIProxy" Multiplicity="*" Role="ToRole_FileResourceapiProxiesAPIProxy"/>
+            </Association>
+            <EntityType Name="CacheResource">
+                <Key>
+                    <PropertyRef Name="name"/>
+                </Key>
+                <Property Name="name" Type="Edm.String" sap:creatable="true" sap:updatable="true" sap:deletable="true" MaxLength="255" sap:label="name"/>
+                <Property Name="compression_enabled" Type="Edm.Boolean" sap:creatable="true" sap:updatable="true" sap:deletable="true" sap:label="compression_enabled"/>
+                <Property Name="disk_size" Type="Edm.Int32" sap:creatable="true" sap:updatable="true" sap:deletable="true" sap:label="disk_size"/>
+                <Property Name="in_memory_size" Type="Edm.Int32" sap:creatable="true" sap:updatable="true" sap:deletable="true" sap:label="in_memory_size"/>
+                <Property Name="max_element_disk" Type="Edm.Int32" sap:creatable="true" sap:updatable="true" sap:deletable="true" sap:label="max_element_disk"/>
+                <Property Name="max_element_memory" Type="Edm.Int32" sap:creatable="true" sap:updatable="true" sap:deletable="true" sap:label="max_element_memory"/>
+                <Property Name="min_compression_size" Type="Edm.Int32" sap:creatable="true" sap:updatable="true" sap:deletable="true" sap:label="min_compression_size"/>
+                <Property Name="over_flow_to_disk" Type="Edm.Boolean" sap:creatable="true" sap:updatable="true" sap:deletable="true" sap:label="over_flow_to_disk"/>
+                <Property Name="persistent_cache" Type="Edm.Boolean" sap:creatable="true" sap:updatable="true" sap:deletable="true" sap:label="persistent_cache"/>
+                <Property Name="skip_cache_element_size" Type="Edm.Int32" sap:creatable="true" sap:updatable="true" sap:deletable="true" sap:label="skip_cache_element_size"/>
+            </EntityType>
+            <EntityType Name="Developer">
+                <Key>
+                    <PropertyRef Name="id"/>
+                </Key>
+                <Property Name="id" Type="Edm.String" sap:creatable="true" sap:updatable="true" sap:deletable="true" MaxLength="256" sap:label="id"/>
+                <Property Name="country" Type="Edm.String" sap:creatable="true" sap:updatable="true" sap:deletable="true" sap:label="country"/>
+                <Property Name="emailId" Type="Edm.String" sap:creatable="true" sap:updatable="true" sap:deletable="true" MaxLength="255" sap:label="emailId"/>
+                <Property Name="firstName" Type="Edm.String" sap:creatable="true" sap:updatable="true" sap:deletable="true" MaxLength="255" sap:label="firstName"/>
+                <Property Name="lastName" Type="Edm.String" sap:creatable="true" sap:updatable="true" sap:deletable="true" MaxLength="255" sap:label="lastName"/>
+                <NavigationProperty Name="applications" Relationship="-APIPortal.DeveloperapplicationsApplication" FromRole="FromRole_DeveloperapplicationsApplication" ToRole="ToRole_DeveloperapplicationsApplication"/>
+            </EntityType>
+            <Association Name="DeveloperapplicationsApplication">
+                <End Type="-APIPortal.Developer" Multiplicity="1" Role="FromRole_DeveloperapplicationsApplication"/>
+                <End Type="-APIPortal.Application" Multiplicity="*" Role="ToRole_DeveloperapplicationsApplication"/>
+            </Association>
+            <EntityType Name="Stream">
+                <Key>
+                    <PropertyRef Name="id"/>
+                </Key>
+                <Property Name="id" Type="Edm.String" sap:creatable="true" sap:updatable="true" sap:deletable="true" MaxLength="36" sap:label="id"/>
+                <Property Name="FK_FLOW_ID" Type="Edm.String" sap:creatable="true" sap:updatable="true" sap:deletable="true" MaxLength="36" sap:label="FK_FLOW_ID"/>
+                <Property Name="isRequest" Type="Edm.Boolean" sap:creatable="true" sap:updatable="true" sap:deletable="true" sap:label="isRequest"/>
+                <NavigationProperty Name="flow" Relationship="-APIPortal.StreamflowFlowRule" FromRole="FromRole_StreamflowFlowRule" ToRole="ToRole_StreamflowFlowRule"/>
+                <NavigationProperty Name="steps" Relationship="-APIPortal.StreamstepsStep" FromRole="FromRole_StreamstepsStep" ToRole="ToRole_StreamstepsStep"/>
+            </EntityType>
+            <Association Name="StreamflowFlowRule">
+                <End Type="-APIPortal.Stream" Multiplicity="1" Role="FromRole_StreamflowFlowRule"/>
+                <End Type="-APIPortal.FlowRule" Multiplicity="1" Role="ToRole_StreamflowFlowRule"/>
+                <ReferentialConstraint>
+                    <Principal Role="ToRole_StreamflowFlowRule">
+                        <PropertyRef Name="id"/>
+                    </Principal>
+                    <Dependent Role="FromRole_StreamflowFlowRule">
+                        <PropertyRef Name="FK_FLOW_ID"/>
+                    </Dependent>
+                </ReferentialConstraint>
+            </Association>
+            <Association Name="StreamstepsStep">
+                <End Type="-APIPortal.Stream" Multiplicity="1" Role="FromRole_StreamstepsStep"/>
+                <End Type="-APIPortal.Step" Multiplicity="*" Role="ToRole_StreamstepsStep"/>
+                <ReferentialConstraint>
+                    <Principal Role="FromRole_StreamstepsStep">
+                        <PropertyRef Name="id"/>
+                    </Principal>
+                    <Dependent Role="ToRole_StreamstepsStep">
+                        <PropertyRef Name="FK_STREAM_ID"/>
+                    </Dependent>
+                </ReferentialConstraint>
+            </Association>
+            <EntityType Name="Policy">
+                <Key>
+                    <PropertyRef Name="id"/>
+                </Key>
+                <Property Name="id" Type="Edm.String" sap:creatable="true" sap:updatable="true" sap:deletable="true" MaxLength="36" sap:label="id"/>
+                <Property Name="FK_API_NAME" Type="Edm.String" sap:creatable="true" sap:updatable="true" sap:deletable="true" MaxLength="255" sap:label="FK_API_NAME"/>
+                <Property Name="name" Type="Edm.String" sap:creatable="true" sap:updatable="true" sap:deletable="true" MaxLength="255" sap:label="name"/>
+                <Property Name="policy_content" Type="Edm.String" sap:creatable="true" sap:updatable="true" sap:deletable="true" sap:label="policy_content"/>
+                <Property Name="type" Type="Edm.String" sap:creatable="true" sap:updatable="true" sap:deletable="true" MaxLength="40" sap:label="type"/>
+                <NavigationProperty Name="apiProxy" Relationship="-APIPortal.PolicyapiProxyAPIProxy" FromRole="FromRole_PolicyapiProxyAPIProxy" ToRole="ToRole_PolicyapiProxyAPIProxy"/>
+            </EntityType>
+            <Association Name="PolicyapiProxyAPIProxy">
+                <End Type="-APIPortal.Policy" Multiplicity="1" Role="FromRole_PolicyapiProxyAPIProxy"/>
+                <End Type="-APIPortal.APIProxy" Multiplicity="1" Role="ToRole_PolicyapiProxyAPIProxy"/>
+                <ReferentialConstraint>
+                    <Principal Role="ToRole_PolicyapiProxyAPIProxy">
+                        <PropertyRef Name="name"/>
+                    </Principal>
+                    <Dependent Role="FromRole_PolicyapiProxyAPIProxy">
+                        <PropertyRef Name="FK_API_NAME"/>
+                    </Dependent>
+                </ReferentialConstraint>
+            </Association>
+        </Schema>
+    </edmx:DataServices>
+</edmx:Edmx>

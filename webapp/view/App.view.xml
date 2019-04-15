@@ -1,0 +1,10 @@
+<mvc:View
+		controllerName="com.sap.build.standard.untitledPrototype.controller.App"
+		xmlns:mvc="sap.ui.core.mvc"
+		displayBlock="true"
+		busy="{appView>/busy}"
+		busyIndicatorDelay="{appView>/delay}"
+		xmlns="sap.f"
+		height="100%">
+	<FlexibleColumnLayout id="idAppControl" stateChange="onStateChanged" layout="{FclRouter>/uiState/layout}" />
+</mvc:View>

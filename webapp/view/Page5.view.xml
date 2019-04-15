@@ -1,0 +1,71 @@
+<mvc:View xmlns:mvc="sap.ui.core.mvc" controllerName="com.sap.build.standard.untitledPrototype.controller.Page5" xmlns="sap.m">
+    <Page title="Detail Page" showHeader="true" showFooter="true" showNavButton="false">
+        <content>
+            <ObjectHeader intro="Intro." title="Title" icon="sap-icon://iphone" number="1,000" numberUnit="USD" numberState="None" titleActive="false" backgroundDesign="Translucent" condensed="false" visible="true">
+                <attributes/>
+                <statuses/>
+                <markers/>
+            </ObjectHeader>
+            <Table width="auto" noDataText="No data" mode="None" showSeparators="All" growing="true" growingThreshold="20" growingScrollToLoad="true" class="sapUiResponsiveMargin" itemPress="_onTableItemPress">
+                <infoToolbar/>
+                <headerToolbar/>
+                <columns>
+                    <Column width="auto" hAlign="Left" vAlign="Top" minScreenWidth="Tablet" demandPopin="true" popinDisplay="Inline" mergeDuplicates="false">
+                        <header>
+                            <Text text="Product" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit" visible="true"/>
+                        </header>
+                        <footer/>
+                    </Column>
+                    <Column width="auto" hAlign="Left" vAlign="Top" minScreenWidth="Tablet" demandPopin="true" popinDisplay="Inline" mergeDuplicates="false">
+                        <header>
+                            <Text text="Supplier" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit" visible="true"/>
+                        </header>
+                        <footer/>
+                    </Column>
+                    <Column width="auto" hAlign="Left" vAlign="Top" minScreenWidth="Tablet" demandPopin="true" popinDisplay="Inline" mergeDuplicates="false">
+                        <header>
+                            <Text text="Price" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit" visible="true"/>
+                        </header>
+                        <footer/>
+                    </Column>
+                </columns>
+                <items>
+                    <ColumnListItem type="Active">
+                        <cells>
+                            <ObjectIdentifier title="Product Name" text="Product ID" titleActive="false" visible="true"/>
+                            <Text text="Supplier Name" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit" visible="true"/>
+                            <ObjectNumber number="150.00" unit="USD" emphasized="true" state="None"/>
+                        </cells>
+                    </ColumnListItem>
+                    <ColumnListItem type="Active">
+                        <cells>
+                            <ObjectIdentifier title="Product Name" text="Product ID" titleActive="false" visible="true"/>
+                            <Text text="Supplier Name" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit" visible="true"/>
+                            <ObjectNumber number="150.00" unit="USD" emphasized="true" state="None"/>
+                        </cells>
+                    </ColumnListItem>
+                    <ColumnListItem type="Active">
+                        <cells>
+                            <ObjectIdentifier title="Product Name" text="Product ID" titleActive="false" visible="true"/>
+                            <Text text="Supplier Name" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit" visible="true"/>
+                            <ObjectNumber number="150.00" unit="USD" emphasized="true" state="None"/>
+                        </cells>
+                    </ColumnListItem>
+                </items>
+            </Table>
+        </content>
+        <footer>
+            <OverflowToolbar width="100%" height="46px" design="Auto" enabled="true" visible="true">
+                <content>
+                    <ToolbarSpacer width=""/>
+                    <Button text="Save" type="Emphasized" iconFirst="true" width="auto" enabled="true" visible="true" iconDensityAware="false"/>
+                    <Button text="Cancel" type="Default" iconFirst="true" width="auto" enabled="true" visible="true" iconDensityAware="false"/>
+                </content>
+            </OverflowToolbar>
+        </footer>
+        <headerContent>
+            <Button text="" type="Default" icon="{= ${FclRouter>/expandIcon/img}}" iconFirst="true" width="auto" enabled="true" visible="{= ${fclButton>/visible}}" tooltip="{= ${FclRouter>/expandIcon/tooltip}}" iconDensityAware="false" class="fcl-resizeButton-js" press="_onExpandButtonPress"/>
+            <Button text="" type="Default" icon="sap-icon://decline" iconFirst="true" width="auto" enabled="true" visible="{= ${fclButton>/visible}}" tooltip="Close Column" iconDensityAware="false" class="fcl-closeButton-js" press="_onCloseButtonPress"/>
+        </headerContent>
+    </Page>
+</mvc:View>
